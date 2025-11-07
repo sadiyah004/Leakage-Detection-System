@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="./static/assets/images/logotitle.png" type="image/icon type">
+    <title>Leakage Detection System</title> <!-- Simple bar CSS -->
+    <link rel="stylesheet" href=" {% static 'css/simplebar.css' %} ">
+    <!-- Fonts CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Icons CSS -->
+    <link rel="stylesheet" href=" {% static 'css/feather.css' %} ">
+    <link rel="stylesheet" href=" {% static 'css/select2.css' %} ">
+    <link rel="stylesheet" href=" {% static 'css/dropzone.css' %} ">
+    <link rel="stylesheet" href=" {% static 'css/uppy.min.css' %} ">
+    <link rel="stylesheet" href=" {% static 'css/jquery.steps.css' %} ">
+    <link rel="stylesheet" href=" {% static 'css/jquery.timepicker.css' %} ">
+    <link rel="stylesheet" href=" {% static 'css/quill.snow.css' %} ">
+    <!-- Date Range Picker CSS -->
+    <link rel="stylesheet" href=" {% static 'css/daterangepicker.css' %} ">
+    <!-- App CSS -->
+    <link rel="stylesheet" href=" {% static 'css/app-light.css' %} " id="lightTheme" disabled>
+    <link rel="stylesheet" href=" {% static 'css/app-dark.css' %} " id="darkTheme">
+  </head>
+  <body class="vertical  dark  ">
+    <div class="wrapper">
+      <nav class="topnav navbar navbar-light">
+        <button type="button" class="navbar-toggler text-muted mt-2 p-0 mr-3 collapseSidebar">
+          <img src="/static/assets/images/search.png" width="25px" height="30px">
+        </button>
+
+        <ul class="nav">
+          <li class="nav-item dropdown">
+            <a href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="avatar avatar-sm mt-2">
+                <img src=" {% static './assets/avatars/face-1.jpg' %} " alt="..." class="avatar-img rounded-circle">
+              </span>
+            </a>
+             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+              <a class="dropdown-item" href="{% url 'lop' %}">Log out</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <aside class="sidebar-left border-right bg-white shadow" id="leftSidebar" data-simplebar>
+        <a href="#" class="btn collapseSidebar toggle-btn d-lg-none text-muted ml-2 mt-3" data-toggle="toggle">
+          <i class="fe fe-x"><span class="sr-only"></span></i>
+        </a>
+        <nav class="vertnav navbar navbar-light">
+          <!-- nav bar -->
+          <div class="w-100 mb-4 d-flex">
+              <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href=" {% url 'Dashboard' %} ">
+              <img src="/static/assets/images/logo.jpg" version="1.1" id="logo" class="navbar-brand-img brand-md"x="0px" y="0px" viewBox="0 0 120 120" xml:space="preserve">
+<!--            <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href=" {% url 'lop' %} ">-->
+<!--              <svg version="1.1" id="logo" class="navbar-brand-img brand-sm" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 120 120" xml:space="preserve">-->
+<!--                -->
+                  <g>
+                  <polygon class="st0" points="78,105 15,105 24,87 87,87 	" />
+                  <polygon class="st0" points="96,69 33,69 42,51 105,51 	" />
+                  <polygon class="st0" points="78,33 15,33 24,15 87,15 	" />
+                </g>
+<!--              </svg>--></img>
+            </a>
+          </div>
+          <ul class="navbar-nav flex-fill w-100 mb-2">
+            <li class="nav-item dropdown">
+              <a class="nav-link" href=" {% url 'Dashboard' %} ">
+                <img src="/static/assets/images/home.png" width="25px" height="30px">
+                <span class="ml-3 item-text">Home</span>
+              </a>
+            </li>
+          </ul>
+          <p class="text-muted nav-heading mt-4 mb-1">
+            <span>Sensors</span>
+          </p>
+          <ul class="navbar-nav flex-fill w-100 mb-2">
+            <li class="nav-item w-100">
+              <a class="nav-link" href=" {% url 'smoke' %} ">
+                <img src="/static/assets/images/smokeicon.png" width="25px" height="30px">
+                <span class="ml-3 item-text">Smoke</span>
+<!--                <span class="badge badge-pill badge-primary">New</span>-->
+              </a>
+            </li>
+
+            <li class="nav-item w-100">
+              <a class="nav-link" href=" {% url 'waterpage' %} ">
+                <img src="/static/assets/images/watericon.png" width="25px" height="30px">
+
+                <span class="ml-3 item-text">Water</span>
+<!--                <span class="badge badge-pill badge-primary">New</span>-->
+              </a>
+            </li>
+            <li class="nav-item w-100">
+              <a class="nav-link" href=" {% url 'gas' %} ">
+                <img src="/static/assets/images/smokeicon.png" width="25px" height="30px">
+                <span class="ml-3 item-text">Gas</span>
+<!--                <span class="badge badge-pill badge-primary">New</span>-->
+              </a>
+            </li>
+          </ul>
+
+          <p class="text-muted nav-heading mt-4 mb-1">
+            <span>Connect</span>
+          </p>
+          <ul class="navbar-nav flex-fill w-100 mb-2">
+
+            <li class="nav-item w-100">
+              <a class="nav-link" href=" {% url 'profile' %} ">
+                <img src="/static/assets/images/profile.png" width="25px" height="30px">
+                <span class="ml-3 item-text">Profile</span>
+              </a>
+            </li>
+            <li class="nav-item w-100">
+              <a class="nav-link" href=" {% url 'about' %} ">
+                <img src="/static/assets/images/aboutus.png" width="25px" height="30px">
+                <span class="ml-3 item-text">About us</span>
+              </a>
+            </li>
+             <li class="nav-item w-100">
+              <a class="nav-link" href=" {% url 'hd' %} ">
+                <img src="/static/assets/images/help.png" width="25px" height="30px">
+                <span class="ml-3 item-text">Help Desk</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <main role="main" class="main-content">
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="row align-items-center mb-2">
+                <div class="col">
+                  <h2 class="h5 page-title">Know Us Better!</h2>
+                </div>
+<div class="col-md-12 mb-4">
+                  <div class="card profile shadow">
+                    <div class="card-body my-4">
+                      <div class="row align-items-center">
+                        <div class="col">
+                          <div class="row align-items-center">
+                            <div class="col-md-7">
+                              <h4 class="mb-1">The Leakage Detection System</h4>
+                              <p class="small mb-3"><span class="badge badge-dark">Gujarat, India</span></p>
+                            </div>
+                            <div class="col">
+                            </div>
+                          </div>
+                          <div class="row mb-4">
+                            <div class="col-md-7">
+                              <p class="text-muted"> The “Leakage Detection System” is efficient, systematic, and amiable one stop website along with a device which has sensors
+                                  (fire smoke leakage detector, liquid leakage detector, gas leakage detector).
+                                  When the detection of the leakage is not done on an early stage there occur some severe
+                                  destruction to the industries economically along with the health of the workers working there.So considering this
+                                   loss of companies and their workers we came up with the "Leakage Dtetection System" Project.Our goal is to develop a system that eliminates
+                                   time delay and prevents major
+                                  accidents causing destruction on a larger scale in the industries by providing timely response and
+                                  saves from larger financial loss of the industries.Which we are trying can be prevented through our project
+                                   The user will be notified with the warning through the website and our device which provides detection of any kind of leakage hence
+                                  leading to the early detection of the leakage.
+                                  We include Internet of Thing (IOT) which can be used to produce an automatic notification and response to the
+                                  scene, so this system provides such facilities. </p>
+                            </div>
+                            <div class="col">
+                              <p class="small mb-0 text-muted">Vishwakarma Government Engineering College </p>
+                              <p class="small mb-0 text-muted">Chandkheda, Ahmedabad, Gujarat 382424</p>
+                              <p class="small mb-0 text-muted"><a href="theleakagedetection@gmail.com">theleakagedetection@gmail.com</a></p>
+                              <p class="small mb-0 text-muted">1236547890</p>
+                            </div>
+                          </div>
+                          <div class="row align-items-center">
+                            <div class="col-md-7 mb-2">
+                              <span class="small text-muted mb-0">Started November 10, 2023</span>
+                            </div>
+                            <div class="col mb-2">
+                              <a href=" {% url 'hd' %}">
+                                <button type="button" class="btn btn-primary">Message</button></a>
+                              <a href=" {% url 'profile' %}">
+                              <button type="button" class="btn btn-secondary">Profile</button></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div> <!-- / .row- -->
+                    </div> <!-- / .card-body - -->
+                  </div> <!-- / .card- -->
+                </div> <!-- / .col- -->
+              </div>
+<!--              my own -->
+                <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <!-- <h2>Section title</h2> -->
+                <h2 class="h5 page-title"><center>our principles</center></h2>
+                <h1 class="h5 page-title"><center><h2>the driving force</h2></center></h1>
+              <p class="text-muted">all our work and initiatives aim at setting up well-governed industry frameworks and practices across multiple sectors. we work and collaborate to enable transparency, traceability, and accountability across all Clients.
+                <div class="row">
+                <div class="col-md-6 col-xl-3 mb-4">
+                  <div class="card shadow ">
+                    <div class="card-body">
+                      <div class="row align-items-center">
+                        <div class="col-3 text-center">
+                          <img src="/static/assets/images/i1.png" version="1.1" id="logo" class="navbar-brand-img brand-md"x="0px" y="0px" viewBox="0 0 120 120" xml:space="preserve">
+                         </div>
+                        <div class="col pr-0">
+                          <p class="small text-muted mb-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Transparency</p>
+<!--                          <span class="h3 mb-0 text-white">$1250</span>-->
+<!--                          <span class="small text-muted">+5.5%</span>-->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-xl-3 mb-4">
+                  <div class="card shadow">
+                    <div class="card-body">
+                      <div class="row align-items-center">
+                        <div class="col-3 text-center">
+                            <img src="/static/assets/images/i2.png" version="1.1" id="logo" class="navbar-brand-img brand-md"x="0px" y="0px" viewBox="0 0 120 120" xml:space="preserve">
+                        </div>
+                        <div class="col pr-0">
+                          <p class="small text-muted mb-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Traceability</p>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-xl-3 mb-4">
+                  <div class="card shadow">
+                    <div class="card-body">
+                      <div class="row align-items-center">
+                        <div class="col-3 text-center">
+                          <img src="/static/assets/images/help.png" version="1.1" id="logo" class="navbar-brand-img brand-md"x="0px" y="0px" viewBox="0 0 120 120" xml:space="preserve">
+                        </div>
+                        <div class="col">
+                          <p class="small text-muted mb-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Accountability</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-xl-3 mb-4">
+                  <div class="card shadow">
+                    <div class="card-body">
+                      <div class="row align-items-center">
+                        <div class="col-3 text-center">
+                          <img src="/static/assets/images/i4.png" version="1.1" id="logo" class="navbar-brand-img brand-md"x="0px" y="0px" viewBox="0 0 120 120" xml:space="preserve">
+                        </div>
+                        <div class="col">
+                          <p class="small text-muted mb-0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assurance</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <div class="col">
+                  <h2 class="h5 page-title">Backbone - Team of Developers
+                </div>
+                <div class="row">
+                <div class="col-md-4">
+                  <div class="card shadow eq-card  mb-4">
+                    <div class="card-header">
+                      <strong>Apaara Mehta</strong>
+                    </div>
+                    <div class="card-body">
+                      <div class="row align-items-bottom my-2">
+                        <div class="col">
+                          <p class="mb-0">Known for their meticulous attention to detail, Apaara Mehta has a track record of successfully identifying and addressing leaks in a wide range of environments. Whether it's industrial facilities, residential buildings, or commercial spaces, their expertise extends across multiple sectors. Their commitment to providing efficient, reliable, and cutting-edge solutions sets them apart from the rest.
+As an advocate for environmentally sustainable practices, She recognizes the critical role leakage detection systems play in conserving valuable resources. Their innovative approach, combined with a deep sense of responsibility, ensures that their solutions not only minimize waste but also contribute to a greener and more sustainable future.
+Beyond their technical proficiency, She is also renowned for their ability to communicate complex concepts in a clear and concise manner.<br><a href="asmithakkar24@gmail.com">asmithakkar24@gmail.com</a>
+                        <br>4563217890</div>     </div>
+                    </div>
+                  </div>
+                </div> <!-- .col -->
+                <div class="col-md-4">
+                  <div class="card shadow eq-card mb-4">
+                    <div class="card-header">
+                      <strong class="card-title">Asmi Thakkar</strong>
+                    </div>
+                    <div class="card-body">
+                      <div class="mx-auto">
+                        <div class="row align-items-center mb-2">
+                          <div class="col">
+                            <p class="mb-0">Asmi Thakkar, a seasoned expert in the field of leakage detection systems. With experience in designing, implementing, and maintaining such systems, Asmi has become a trusted authority in the industry. Her passion for developing innovative solutions to complex problems has earned her a reputation for excellence among his peers.
+Asmi's expertise extends across a wide range of industries, including oil and gas, chemical processing, and water management. Her in-depth knowledge of the latest technologies and techniques in leakage detection enables her to provide customized solutions that are tailored to the specific needs of her clients.
+Whether it's conducting risk assessments, designing leak detection systems, or troubleshooting existing systems, Asmi's dedication to quality and customer satisfaction is evident in every project he undertakes.
+                            </p><a href="asmithakkar24@gmail.com">asmithakkar24@gmail.com</a>
+                        <br>4563217890
+                          </div>
+                        </div>
+                      </div>
+                    </div> <!-- .card-body -->
+                  </div> <!-- .card -->
+                </div> <!-- .col-md -->
+                <div class="col-md-4">
+                  <div class="card shadow eq-card mb-4">
+                    <div class="card-header">
+                      <strong>Sadiyah Shaikh</strong>
+                    </div>
+                    <div class="card-body">
+                      <div class="row align-items-bottom my-2">
+                        <div class="col">
+                          <p class="mb-0">Sadiyah Shaikh possesses a deep-rooted passion for creating innovative solutions that address the critical issue of leak detection in various industries. Their relentless pursuit of excellence has led to groundbreaking advancements in this domain, revolutionizing the way leakage problems are identified and resolved. Through their unwavering commitment to research and development, Sadiyah has garnered a reputation for delivering superior results and fostering long-lasting partnerships with clients and collaborators.
+As a highly sought-after consultant, Sadiyah has advised and collaborated with numerous organizations, ranging from large corporations to government agencies, helping them mitigate risks associated with leaks and improve overall operational efficiency. Their invaluable insights and guidance have played a pivotal role in saving significant resources, protecting the environment, and ensuring the safety of critical infrastructure.
+                      <a href="sadiyahshaikh004@gmail.com">sadiyahshaikh004@gmail.com</a>
+                        <br>7896541230</div></div>
+                    </div><!-- .col -->
+                          </div>
+                        </div>
+                      </div>
+                    </div> <!-- .card-body -->
+                  </div> <!-- .card -->
+                </div> <!-- .col -->
+              </div>
+            </div> <!-- /.col -->
+          </div> <!-- .row -->
+        </div> <!-- .container-fluid -->
+<!--    end my own-->
+      </main> <!-- main -->
+    </div> <!-- .wrapper -->
+    <script src=" {% static 'js/jquery.min.js' %} "></script>
+    <script src=" {% static 'js/popper.min.js' %} "></script>
+    <script src=" {% static 'js/moment.min.js' %} "></script>
+    <script src=" {% static 'js/bootstrap.min.js' %} "></script>
+    <script src=" {% static 'js/simplebar.min.js' %} "></script>
+    <script src=" {% static 'js/daterangepicker.js' %} "></script>
+    <script src=" {% static 'js/jquery.stickOnScroll.js' %} "></script>
+    <script src=" {% static 'js/tinycolor-min.js' %} "></script>
+    <script src=" {% static 'js/config.js' %} "></script>
+    <script src=" {% static 'js/d3.min.js' %} "></script>
+    <script src=" {% static 'js/topojson.min.js' %} "></script>
+    <script src=" {% static 'js/datamaps.all.min.js' %} "></script>
+    <script src=" {% static 'js/datamaps-zoomto.js' %} "></script>
+    <script src=" {% static 'js/datamaps.custom.js' %} "></script>
+    <script src=" {% static 'js/Chart.min.js' %} "></script>
+    <script>
+      /* defind global options */
+      Chart.defaults.global.defaultFontFamily = base.defaultFontFamily;
+      Chart.defaults.global.defaultFontColor = colors.mutedColor;
+    </script>
+    <script src=" {% static 'js/gauge.min.js' %} "></script>
+    <script src=" {% static 'js/jquery.sparkline.min.js' %} "></script>
+    <script src=" {% static 'js/apexcharts.min.js' %} "></script>
+    <script src=" {% static 'js/apexcharts.custom.js' %} "></script>
+    <script src="{% static 'js/jquery.mask.min.js' %}" ></script>
+    <script src=" {% static 'js/select2.min.js' %}" ></script>
+    <script src=" {% static 'js/jquery.steps.min.js' %} "></script>
+    <script src=" {% static 'js/jquery.validate.min.js' %} "></script>
+    <script src=" {% static 'js/jquery.timepicker.js' %} "></script>
+    <script src=" {% static 'js/dropzone.min.js' %} "></script>
+    <script src=" {% static 'js/uppy.min.js' %}"</script>
+    <script src=" {% static 'js/quill.min.js' %}" ></script>
+<!--    <script>-->
+<!--      $('.select2').select2(-->
+<!--      {-->
+<!--        theme: 'bootstrap4',-->
+<!--      });-->
+<!--      $('.select2-multi').select2(-->
+<!--      {-->
+<!--        multiple: true,-->
+<!--        theme: 'bootstrap4',-->
+<!--      });-->
+<!--      $('.drgpicker').daterangepicker(-->
+<!--      {-->
+<!--        singleDatePicker: true,-->
+<!--        timePicker: false,-->
+<!--        showDropdowns: true,-->
+<!--        locale:-->
+<!--        {-->
+<!--          format: 'MM/DD/YYYY'-->
+<!--        }-->
+<!--      });-->
+<!--      $('.time-input').timepicker(-->
+<!--      {-->
+<!--        'scrollDefault': 'now',-->
+<!--        'zindex': '9999' /* fix modal open */-->
+<!--      });-->
+<!--      /** date range picker */-->
+<!--      if ($('.datetimes').length)-->
+<!--      {-->
+<!--        $('.datetimes').daterangepicker(-->
+<!--        {-->
+<!--          timePicker: true,-->
+<!--          startDate: moment().startOf('hour'),-->
+<!--          endDate: moment().startOf('hour').add(32, 'hour'),-->
+<!--          locale:-->
+<!--          {-->
+<!--            format: 'M/DD hh:mm A'-->
+<!--          }-->
+<!--        });-->
+<!--      }-->
+<!--      var start = moment().subtract(29, 'days');-->
+<!--      var end = moment();-->
+
+<!--      function cb(start, end)-->
+<!--      {-->
+<!--        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));-->
+<!--      }-->
+<!--      $('#reportrange').daterangepicker(-->
+<!--      {-->
+<!--        startDate: start,-->
+<!--        endDate: end,-->
+<!--        ranges:-->
+<!--        {-->
+<!--          'Today': [moment(), moment()],-->
+<!--          'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],-->
+<!--          'Last 7 Days': [moment().subtract(6, 'days'), moment()],-->
+<!--          'Last 30 Days': [moment().subtract(29, 'days'), moment()],-->
+<!--          'This Month': [moment().startOf('month'), moment().endOf('month')],-->
+<!--          'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]-->
+<!--        }-->
+<!--      }, cb);-->
+<!--      cb(start, end);-->
+<!--      $('.input-placeholder').mask("00/00/0000",-->
+<!--      {-->
+<!--        placeholder: "__/__/____"-->
+<!--      });-->
+<!--      $('.input-zip').mask('00000-000',-->
+<!--      {-->
+<!--        placeholder: "____-___"-->
+<!--      });-->
+<!--      $('.input-money').mask("#.##0,00",-->
+<!--      {-->
+<!--        reverse: true-->
+<!--      });-->
+<!--      $('.input-phoneus').mask('(000) 000-0000');-->
+<!--      $('.input-mixed').mask('AAA 000-S0S');-->
+<!--      $('.input-ip').mask('0ZZ.0ZZ.0ZZ.0ZZ',-->
+<!--      {-->
+<!--        translation:-->
+<!--        {-->
+<!--          'Z':-->
+<!--          {-->
+<!--            pattern: /[0-9]/,-->
+<!--            optional: true-->
+<!--          }-->
+<!--        },-->
+<!--        placeholder: "___.___.___.___"-->
+<!--      });-->
+<!--      // editor-->
+<!--      var editor = document.getElementById('editor');-->
+<!--      if (editor)-->
+<!--      {-->
+<!--        var toolbarOptions = [-->
+<!--          [-->
+<!--          {-->
+<!--            'font': []-->
+<!--          }],-->
+<!--          [-->
+<!--          {-->
+<!--            'header': [1, 2, 3, 4, 5, 6, false]-->
+<!--          }],-->
+<!--          ['bold', 'italic', 'underline', 'strike'],-->
+<!--          ['blockquote', 'code-block'],-->
+<!--          [-->
+<!--          {-->
+<!--            'header': 1-->
+<!--          },-->
+<!--          {-->
+<!--            'header': 2-->
+<!--          }],-->
+<!--          [-->
+<!--          {-->
+<!--            'list': 'ordered'-->
+<!--          },-->
+<!--          {-->
+<!--            'list': 'bullet'-->
+<!--          }],-->
+<!--          [-->
+<!--          {-->
+<!--            'script': 'sub'-->
+<!--          },-->
+<!--          {-->
+<!--            'script': 'super'-->
+<!--          }],-->
+<!--          [-->
+<!--          {-->
+<!--            'indent': '-1'-->
+<!--          },-->
+<!--          {-->
+<!--            'indent': '+1'-->
+<!--          }], // outdent/indent-->
+<!--          [-->
+<!--          {-->
+<!--            'direction': 'rtl'-->
+<!--          }], // text direction-->
+<!--          [-->
+<!--          {-->
+<!--            'color': []-->
+<!--          },-->
+<!--          {-->
+<!--            'background': []-->
+<!--          }], // dropdown with defaults from theme-->
+<!--          [-->
+<!--          {-->
+<!--            'align': []-->
+<!--          }],-->
+<!--          ['clean'] // remove formatting button-->
+<!--        ];-->
+<!--        var quill = new Quill(editor,-->
+<!--        {-->
+<!--          modules:-->
+<!--          {-->
+<!--            toolbar: toolbarOptions-->
+<!--          },-->
+<!--          theme: 'snow'-->
+<!--        });-->
+<!--      }-->
+<!--      // Example starter JavaScript for disabling form submissions if there are invalid fields-->
+<!--      (function()-->
+<!--      {-->
+<!--        'use strict';-->
+<!--        window.addEventListener('load', function()-->
+<!--        {-->
+<!--          // Fetch all the forms we want to apply custom Bootstrap validation styles to-->
+<!--          var forms = document.getElementsByClassName('needs-validation');-->
+<!--          // Loop over them and prevent submission-->
+<!--          var validation = Array.prototype.filter.call(forms, function(form)-->
+<!--          {-->
+<!--            form.addEventListener('submit', function(event)-->
+<!--            {-->
+<!--              if (form.checkValidity() === false)-->
+<!--              {-->
+<!--                event.preventDefault();-->
+<!--                event.stopPropagation();-->
+<!--              }-->
+<!--              form.classList.add('was-validated');-->
+<!--            }, false);-->
+<!--          });-->
+<!--        }, false);-->
+<!--      })();-->
+<!--    </script>-->
+<!--    <script>-->
+<!--      var uptarg = document.getElementById('drag-drop-area');-->
+<!--      if (uptarg)-->
+<!--      {-->
+<!--        var uppy = Uppy.Core().use(Uppy.Dashboard,-->
+<!--        {-->
+<!--          inline: true,-->
+<!--          target: uptarg,-->
+<!--          proudlyDisplayPoweredByUppy: false,-->
+<!--          theme: 'dark',-->
+<!--          width: 770,-->
+<!--          height: 210,-->
+<!--          plugins: ['Webcam']-->
+<!--        }).use(Uppy.Tus,-->
+<!--        {-->
+<!--          endpoint: 'https://master.tus.io/files/'-->
+<!--        });-->
+<!--        uppy.on('complete', (result) =>-->
+<!--        {-->
+<!--          console.log('Upload complete! We’ve uploaded these files:', result.successful)-->
+<!--        });-->
+<!--      }-->
+<!--    </script>-->
+<!--    <script src=" {% static 'js/apps.js' %} "></script>-->
+<!--    &lt;!&ndash; Global site tag (gtag.js) - Google Analytics &ndash;&gt;-->
+<!--    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>-->
+<!--    <script>-->
+<!--      window.dataLayer = window.dataLayer || [];-->
+
+<!--      function gtag()-->
+<!--      {-->
+<!--        dataLayer.push(arguments);-->
+<!--      }-->
+<!--      gtag('js', new Date());-->
+<!--      gtag('config', 'UA-56159088-1');-->
+<!--    </script>-->
+  </body>
+</html>

@@ -1,0 +1,892 @@
+<html>
+<head>
+<title>dashboard-saas.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #e8bf6a;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #bababa;}
+.s3 { color: #a5c261;}
+.s4 { color: #808080;}
+.s5 { color: #6d9cbe;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+dashboard-saas.html</font>
+</center></td></tr></table>
+<pre><span class="s0">&lt;!doctype </span><span class="s2">html</span><span class="s0">&gt;</span>
+<span class="s0">&lt;html </span><span class="s2">lang</span><span class="s3">=&quot;en&quot;</span><span class="s0">&gt;</span>
+<span class="s1">{% load static %}</span>
+  <span class="s0">&lt;head&gt;</span>
+    <span class="s0">&lt;meta </span><span class="s2">charset</span><span class="s3">=&quot;utf-8&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;meta </span><span class="s2">name</span><span class="s3">=&quot;viewport&quot; </span><span class="s2">content</span><span class="s3">=&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;meta </span><span class="s2">name</span><span class="s3">=&quot;description&quot; </span><span class="s2">content</span><span class="s3">=&quot;&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;meta </span><span class="s2">name</span><span class="s3">=&quot;author&quot; </span><span class="s2">content</span><span class="s3">=&quot;&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;icon&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static 'favicon.ico' %} &quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;title&gt;</span><span class="s1">Tiny Dashboard - A Bootstrap Dashboard Template</span><span class="s0">&lt;/title&gt;</span>
+    <span class="s4">&lt;!-- Simple bar CSS --&gt;</span>
+    <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static 'css/simplebar.css' %} &quot;</span><span class="s0">&gt;</span>
+    <span class="s4">&lt;!-- Fonts CSS --&gt;</span>
+    <span class="s0">&lt;link </span><span class="s2">href</span><span class="s3">=&quot;https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&amp;display=swap&quot; </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot;</span><span class="s0">&gt;</span>
+    <span class="s4">&lt;!-- Icons CSS --&gt;</span>
+    <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static 'css/feather.css' %} &quot;</span><span class="s0">&gt;</span>
+    <span class="s4">&lt;!-- Date Range Picker CSS --&gt;</span>
+    <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static 'css/daterangepicker.css' %} &quot;</span><span class="s0">&gt;</span>
+    <span class="s4">&lt;!-- App CSS --&gt;</span>
+    <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static 'css/app-light.css' %} &quot; </span><span class="s2">id</span><span class="s3">=&quot;lightTheme&quot; </span><span class="s2">disabled</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static 'css/app-dark.css' %} &quot; </span><span class="s2">id</span><span class="s3">=&quot;darkTheme&quot;</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;/head&gt;</span>
+  <span class="s0">&lt;body </span><span class="s2">class</span><span class="s3">=&quot;vertical  dark  &quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;wrapper&quot;</span><span class="s0">&gt;</span>
+      <span class="s0">&lt;nav </span><span class="s2">class</span><span class="s3">=&quot;topnav navbar navbar-light&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;button </span><span class="s2">type</span><span class="s3">=&quot;button&quot; </span><span class="s2">class</span><span class="s3">=&quot;navbar-toggler text-muted mt-2 p-0 mr-3 collapseSidebar&quot;</span><span class="s0">&gt;</span>
+          <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fe fe-menu navbar-toggler-icon&quot;</span><span class="s0">&gt;&lt;/i&gt;</span>
+        <span class="s0">&lt;/button&gt;</span>
+        <span class="s0">&lt;form </span><span class="s2">class</span><span class="s3">=&quot;form-inline mr-auto searchform text-muted&quot;</span><span class="s0">&gt;</span>
+          <span class="s0">&lt;input </span><span class="s2">class</span><span class="s3">=&quot;form-control mr-sm-2 bg-transparent border-0 pl-4 text-muted&quot; </span><span class="s2">type</span><span class="s3">=&quot;search&quot; </span><span class="s2">placeholder</span><span class="s3">=&quot;Type something...&quot; </span><span class="s2">aria-label</span><span class="s3">=&quot;Search&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;/form&gt;</span>
+        <span class="s0">&lt;ul </span><span class="s2">class</span><span class="s3">=&quot;nav&quot;</span><span class="s0">&gt;</span>
+          <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link text-muted my-2&quot; </span><span class="s2">href</span><span class="s3">=&quot;#&quot; </span><span class="s2">id</span><span class="s3">=&quot;modeSwitcher&quot; </span><span class="s2">data-mode</span><span class="s3">=&quot;dark&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fe fe-sun fe-16&quot;</span><span class="s0">&gt;&lt;/i&gt;</span>
+            <span class="s0">&lt;/a&gt;</span>
+          <span class="s0">&lt;/li&gt;</span>
+          <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link text-muted my-2&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './#' %} &quot; </span><span class="s2">data-toggle</span><span class="s3">=&quot;modal&quot; </span><span class="s2">data-target</span><span class="s3">=&quot;.modal-shortcut&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;fe fe-grid fe-16&quot;</span><span class="s0">&gt;&lt;/span&gt;</span>
+            <span class="s0">&lt;/a&gt;</span>
+          <span class="s0">&lt;/li&gt;</span>
+          <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item nav-notif&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link text-muted my-2&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './#' %} &quot; </span><span class="s2">data-toggle</span><span class="s3">=&quot;modal&quot; </span><span class="s2">data-target</span><span class="s3">=&quot;.modal-notif&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;fe fe-bell fe-16&quot;</span><span class="s0">&gt;&lt;/span&gt;</span>
+              <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;dot dot-md bg-success&quot;</span><span class="s0">&gt;&lt;/span&gt;</span>
+            <span class="s0">&lt;/a&gt;</span>
+          <span class="s0">&lt;/li&gt;</span>
+          <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item dropdown&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link dropdown-toggle text-muted pr-0&quot; </span><span class="s2">href</span><span class="s3">=&quot;#&quot; </span><span class="s2">id</span><span class="s3">=&quot;navbarDropdownMenuLink&quot; </span><span class="s2">role</span><span class="s3">=&quot;button&quot; </span><span class="s2">data-toggle</span><span class="s3">=&quot;dropdown&quot; </span><span class="s2">aria-haspopup</span><span class="s3">=&quot;true&quot; </span><span class="s2">aria-expanded</span><span class="s3">=&quot;false&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;avatar avatar-sm mt-2&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;img </span><span class="s2">src</span><span class="s3">=&quot; {% static './assets/avatars/face-1.jpg' %} &quot; </span><span class="s2">alt</span><span class="s3">=&quot;...&quot; </span><span class="s2">class</span><span class="s3">=&quot;avatar-img rounded-circle&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;/span&gt;</span>
+            <span class="s0">&lt;/a&gt;</span>
+            <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;dropdown-menu dropdown-menu-right&quot; </span><span class="s2">aria-labelledby</span><span class="s3">=&quot;navbarDropdownMenuLink&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;dropdown-item&quot; </span><span class="s2">href</span><span class="s3">=&quot;#&quot;</span><span class="s0">&gt;</span><span class="s1">Profile</span><span class="s0">&lt;/a&gt;</span>
+              <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;dropdown-item&quot; </span><span class="s2">href</span><span class="s3">=&quot;#&quot;</span><span class="s0">&gt;</span><span class="s1">Settings</span><span class="s0">&lt;/a&gt;</span>
+              <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;dropdown-item&quot; </span><span class="s2">href</span><span class="s3">=&quot;#&quot;</span><span class="s0">&gt;</span><span class="s1">Activities</span><span class="s0">&lt;/a&gt;</span>
+            <span class="s0">&lt;/div&gt;</span>
+          <span class="s0">&lt;/li&gt;</span>
+        <span class="s0">&lt;/ul&gt;</span>
+      <span class="s0">&lt;/nav&gt;</span>
+      <span class="s0">&lt;aside </span><span class="s2">class</span><span class="s3">=&quot;sidebar-left border-right bg-white shadow&quot; </span><span class="s2">id</span><span class="s3">=&quot;leftSidebar&quot; </span><span class="s2">data-simplebar</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;#&quot; </span><span class="s2">class</span><span class="s3">=&quot;btn collapseSidebar toggle-btn d-lg-none text-muted ml-2 mt-3&quot; </span><span class="s2">data-toggle</span><span class="s3">=&quot;toggle&quot;</span><span class="s0">&gt;</span>
+          <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fe fe-x&quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;sr-only&quot;</span><span class="s0">&gt;&lt;/span&gt;&lt;/i&gt;</span>
+        <span class="s0">&lt;/a&gt;</span>
+        <span class="s0">&lt;nav </span><span class="s2">class</span><span class="s3">=&quot;vertnav navbar navbar-light&quot;</span><span class="s0">&gt;</span>
+          <span class="s4">&lt;!-- nav bar --&gt;</span>
+          <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;w-100 mb-4 d-flex&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;navbar-brand mx-auto mt-2 flex-fill text-center&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './index.html' %} &quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;svg </span><span class="s2">version</span><span class="s3">=&quot;1.1&quot; </span><span class="s2">id</span><span class="s3">=&quot;logo&quot; </span><span class="s2">class</span><span class="s3">=&quot;navbar-brand-img brand-sm&quot; </span><span class="s2">xmlns</span><span class="s3">=&quot;http://www.w3.org/2000/svg&quot; </span><span class="s2">xmlns:xlink</span><span class="s3">=&quot;http://www.w3.org/1999/xlink&quot; </span><span class="s2">x</span><span class="s3">=&quot;0px&quot; </span><span class="s2">y</span><span class="s3">=&quot;0px&quot; </span><span class="s2">viewBox</span><span class="s3">=&quot;0 0 120 120&quot; </span><span class="s2">xml:space</span><span class="s3">=&quot;preserve&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;g&gt;</span>
+                  <span class="s0">&lt;polygon </span><span class="s2">class</span><span class="s3">=&quot;st0&quot; </span><span class="s2">points</span><span class="s3">=&quot;78,105 15,105 24,87 87,87    &quot; </span><span class="s0">/&gt;</span>
+                  <span class="s0">&lt;polygon </span><span class="s2">class</span><span class="s3">=&quot;st0&quot; </span><span class="s2">points</span><span class="s3">=&quot;96,69 33,69 42,51 105,51     &quot; </span><span class="s0">/&gt;</span>
+                  <span class="s0">&lt;polygon </span><span class="s2">class</span><span class="s3">=&quot;st0&quot; </span><span class="s2">points</span><span class="s3">=&quot;78,33 15,33 24,15 87,15  &quot; </span><span class="s0">/&gt;</span>
+                <span class="s0">&lt;/g&gt;</span>
+              <span class="s0">&lt;/svg&gt;</span>
+            <span class="s0">&lt;/a&gt;</span>
+          <span class="s0">&lt;/div&gt;</span>
+          <span class="s0">&lt;ul </span><span class="s2">class</span><span class="s3">=&quot;navbar-nav flex-fill w-100 mb-2&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item dropdown&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot; {% static '#dashboard' %} &quot; </span><span class="s2">data-toggle</span><span class="s3">=&quot;collapse&quot; </span><span class="s2">aria-expanded</span><span class="s3">=&quot;false&quot; </span><span class="s2">class</span><span class="s3">=&quot;dropdown-toggle nav-link&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fe fe-home fe-16&quot;</span><span class="s0">&gt;&lt;/i&gt;</span>
+                <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-3 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Dashboard</span><span class="s0">&lt;/span&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;sr-only&quot;</span><span class="s0">&gt;</span><span class="s1">(current)</span><span class="s0">&lt;/span&gt;</span>
+              <span class="s0">&lt;/a&gt;</span>
+              <span class="s0">&lt;ul </span><span class="s2">class</span><span class="s3">=&quot;collapse list-unstyled pl-4 w-100&quot; </span><span class="s2">id</span><span class="s3">=&quot;dashboard&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item active&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './index.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Default</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './dashboard-analytics.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Analytics</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './dashboard-sales.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">E-commerce</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './dashboard-saas.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Saas Dashboard</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './dashboard-system.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Systems</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+              <span class="s0">&lt;/ul&gt;</span>
+            <span class="s0">&lt;/li&gt;</span>
+          <span class="s0">&lt;/ul&gt;</span>
+          <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;text-muted nav-heading mt-4 mb-1&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;span&gt;</span><span class="s1">Components</span><span class="s0">&lt;/span&gt;</span>
+          <span class="s0">&lt;/p&gt;</span>
+          <span class="s0">&lt;ul </span><span class="s2">class</span><span class="s3">=&quot;navbar-nav flex-fill w-100 mb-2&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item dropdown&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot; {% static '#ui-elements' %} &quot; </span><span class="s2">data-toggle</span><span class="s3">=&quot;collapse&quot; </span><span class="s2">aria-expanded</span><span class="s3">=&quot;false&quot; </span><span class="s2">class</span><span class="s3">=&quot;dropdown-toggle nav-link&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fe fe-box fe-16&quot;</span><span class="s0">&gt;&lt;/i&gt;</span>
+                <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-3 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">UI elements</span><span class="s0">&lt;/span&gt;</span>
+              <span class="s0">&lt;/a&gt;</span>
+              <span class="s0">&lt;ul </span><span class="s2">class</span><span class="s3">=&quot;collapse list-unstyled pl-4 w-100&quot; </span><span class="s2">id</span><span class="s3">=&quot;ui-elements&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './ui-color.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Colors</span><span class="s0">&lt;/span&gt;</span>
+                  <span class="s0">&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './ui-typograpy.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Typograpy</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './ui-icons.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Icons</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './ui-buttons.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Buttons</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './ui-notification.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Notifications</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './ui-modals.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Modals</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './ui-tabs-accordion.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Tabs &amp; Accordion</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './ui-progress.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Progress</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+              <span class="s0">&lt;/ul&gt;</span>
+            <span class="s0">&lt;/li&gt;</span>
+            <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item w-100&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static 'widgets.html' %} &quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fe fe-layers fe-16&quot;</span><span class="s0">&gt;&lt;/i&gt;</span>
+                <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-3 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Widgets</span><span class="s0">&lt;/span&gt;</span>
+                <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;badge badge-pill badge-primary&quot;</span><span class="s0">&gt;</span><span class="s1">New</span><span class="s0">&lt;/span&gt;</span>
+              <span class="s0">&lt;/a&gt;</span>
+            <span class="s0">&lt;/li&gt;</span>
+            <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item dropdown&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot; {% static '#forms' %} &quot; </span><span class="s2">data-toggle</span><span class="s3">=&quot;collapse&quot; </span><span class="s2">aria-expanded</span><span class="s3">=&quot;false&quot; </span><span class="s2">class</span><span class="s3">=&quot;dropdown-toggle nav-link&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fe fe-credit-card fe-16&quot;</span><span class="s0">&gt;&lt;/i&gt;</span>
+                <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-3 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Forms</span><span class="s0">&lt;/span&gt;</span>
+              <span class="s0">&lt;/a&gt;</span>
+              <span class="s0">&lt;ul </span><span class="s2">class</span><span class="s3">=&quot;collapse list-unstyled pl-4 w-100&quot; </span><span class="s2">id</span><span class="s3">=&quot;forms&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './form_elements.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Basic Elements</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './form_advanced.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Advanced Elements</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './form_validation.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Validation</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './form_wizard.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Wizard</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './form_layouts.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Layouts</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './form_upload.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">File upload</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+              <span class="s0">&lt;/ul&gt;</span>
+            <span class="s0">&lt;/li&gt;</span>
+            <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item dropdown&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot; {% static '#tables' %} &quot; </span><span class="s2">data-toggle</span><span class="s3">=&quot;collapse&quot; </span><span class="s2">aria-expanded</span><span class="s3">=&quot;false&quot; </span><span class="s2">class</span><span class="s3">=&quot;dropdown-toggle nav-link&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fe fe-grid fe-16&quot;</span><span class="s0">&gt;&lt;/i&gt;</span>
+                <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-3 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Tables</span><span class="s0">&lt;/span&gt;</span>
+              <span class="s0">&lt;/a&gt;</span>
+              <span class="s0">&lt;ul </span><span class="s2">class</span><span class="s3">=&quot;collapse list-unstyled pl-4 w-100&quot; </span><span class="s2">id</span><span class="s3">=&quot;tables&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './table_basic.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Basic Tables</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './table_advanced.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Advanced Tables</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './table_datatables.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Data Tables</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+              <span class="s0">&lt;/ul&gt;</span>
+            <span class="s0">&lt;/li&gt;</span>
+            <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item dropdown&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot; {% static '#charts' %} &quot; </span><span class="s2">data-toggle</span><span class="s3">=&quot;collapse&quot; </span><span class="s2">aria-expanded</span><span class="s3">=&quot;false&quot; </span><span class="s2">class</span><span class="s3">=&quot;dropdown-toggle nav-link&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fe fe-pie-chart fe-16&quot;</span><span class="s0">&gt;&lt;/i&gt;</span>
+                <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-3 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Charts</span><span class="s0">&lt;/span&gt;</span>
+              <span class="s0">&lt;/a&gt;</span>
+              <span class="s0">&lt;ul </span><span class="s2">class</span><span class="s3">=&quot;collapse list-unstyled pl-4 w-100&quot; </span><span class="s2">id</span><span class="s3">=&quot;charts&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './chart-inline.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Inline Chart</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './chart-chartjs.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Chartjs</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './chart-apexcharts.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">ApexCharts</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './datamaps.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Datamaps</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+              <span class="s0">&lt;/ul&gt;</span>
+            <span class="s0">&lt;/li&gt;</span>
+          <span class="s0">&lt;/ul&gt;</span>
+          <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;text-muted nav-heading mt-4 mb-1&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;span&gt;</span><span class="s1">Apps</span><span class="s0">&lt;/span&gt;</span>
+          <span class="s0">&lt;/p&gt;</span>
+          <span class="s0">&lt;ul </span><span class="s2">class</span><span class="s3">=&quot;navbar-nav flex-fill w-100 mb-2&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item w-100&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static 'calendar.html' %} &quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fe fe-calendar fe-16&quot;</span><span class="s0">&gt;&lt;/i&gt;</span>
+                <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-3 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Calendar</span><span class="s0">&lt;/span&gt;</span>
+              <span class="s0">&lt;/a&gt;</span>
+            <span class="s0">&lt;/li&gt;</span>
+            <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item dropdown&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot; {% static '#contact' %} &quot; </span><span class="s2">data-toggle</span><span class="s3">=&quot;collapse&quot; </span><span class="s2">aria-expanded</span><span class="s3">=&quot;false&quot; </span><span class="s2">class</span><span class="s3">=&quot;dropdown-toggle nav-link&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fe fe-book fe-16&quot;</span><span class="s0">&gt;&lt;/i&gt;</span>
+                <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-3 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Contacts</span><span class="s0">&lt;/span&gt;</span>
+              <span class="s0">&lt;/a&gt;</span>
+              <span class="s0">&lt;ul </span><span class="s2">class</span><span class="s3">=&quot;collapse list-unstyled pl-4 w-100&quot; </span><span class="s2">id</span><span class="s3">=&quot;contact&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './contacts-list.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1&quot;</span><span class="s0">&gt;</span><span class="s1">Contact List</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './contacts-grid.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1&quot;</span><span class="s0">&gt;</span><span class="s1">Contact Grid</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './contacts-new.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1&quot;</span><span class="s0">&gt;</span><span class="s1">New Contact</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+              <span class="s0">&lt;/ul&gt;</span>
+            <span class="s0">&lt;/li&gt;</span>
+            <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item dropdown&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot; {% static '#profile' %} &quot; </span><span class="s2">data-toggle</span><span class="s3">=&quot;collapse&quot; </span><span class="s2">aria-expanded</span><span class="s3">=&quot;false&quot; </span><span class="s2">class</span><span class="s3">=&quot;dropdown-toggle nav-link&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fe fe-user fe-16&quot;</span><span class="s0">&gt;&lt;/i&gt;</span>
+                <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-3 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Profile</span><span class="s0">&lt;/span&gt;</span>
+              <span class="s0">&lt;/a&gt;</span>
+              <span class="s0">&lt;ul </span><span class="s2">class</span><span class="s3">=&quot;collapse list-unstyled pl-4 w-100&quot; </span><span class="s2">id</span><span class="s3">=&quot;profile&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './profile.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1&quot;</span><span class="s0">&gt;</span><span class="s1">Overview</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './profile-settings.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1&quot;</span><span class="s0">&gt;</span><span class="s1">Settings</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './profile-security.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1&quot;</span><span class="s0">&gt;</span><span class="s1">Security</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './profile-notification.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1&quot;</span><span class="s0">&gt;</span><span class="s1">Notifications</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+              <span class="s0">&lt;/ul&gt;</span>
+            <span class="s0">&lt;/li&gt;</span>
+            <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item dropdown&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot; {% static '#fileman' %} &quot; </span><span class="s2">data-toggle</span><span class="s3">=&quot;collapse&quot; </span><span class="s2">aria-expanded</span><span class="s3">=&quot;false&quot; </span><span class="s2">class</span><span class="s3">=&quot;dropdown-toggle nav-link&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fe fe-folder fe-16&quot;</span><span class="s0">&gt;&lt;/i&gt;</span>
+                <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-3 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">File Manager</span><span class="s0">&lt;/span&gt;</span>
+              <span class="s0">&lt;/a&gt;</span>
+              <span class="s0">&lt;ul </span><span class="s2">class</span><span class="s3">=&quot;collapse list-unstyled pl-4 w-100&quot; </span><span class="s2">id</span><span class="s3">=&quot;fileman&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './files-list.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1&quot;</span><span class="s0">&gt;</span><span class="s1">Files List</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './files-grid.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1&quot;</span><span class="s0">&gt;</span><span class="s1">Files Grid</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+              <span class="s0">&lt;/ul&gt;</span>
+            <span class="s0">&lt;/li&gt;</span>
+            <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item dropdown&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot; {% static '#support' %} &quot; </span><span class="s2">data-toggle</span><span class="s3">=&quot;collapse&quot; </span><span class="s2">aria-expanded</span><span class="s3">=&quot;false&quot; </span><span class="s2">class</span><span class="s3">=&quot;dropdown-toggle nav-link&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fe fe-compass fe-16&quot;</span><span class="s0">&gt;&lt;/i&gt;</span>
+                <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-3 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Help Desk</span><span class="s0">&lt;/span&gt;</span>
+              <span class="s0">&lt;/a&gt;</span>
+              <span class="s0">&lt;ul </span><span class="s2">class</span><span class="s3">=&quot;collapse list-unstyled pl-4 w-100&quot; </span><span class="s2">id</span><span class="s3">=&quot;support&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './support-center.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1&quot;</span><span class="s0">&gt;</span><span class="s1">Home</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './support-tickets.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1&quot;</span><span class="s0">&gt;</span><span class="s1">Tickets</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './support-ticket-detail.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1&quot;</span><span class="s0">&gt;</span><span class="s1">Ticket Detail</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './support-faqs.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1&quot;</span><span class="s0">&gt;</span><span class="s1">FAQs</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+              <span class="s0">&lt;/ul&gt;</span>
+            <span class="s0">&lt;/li&gt;</span>
+          <span class="s0">&lt;/ul&gt;</span>
+          <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;text-muted nav-heading mt-4 mb-1&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;span&gt;</span><span class="s1">Extra</span><span class="s0">&lt;/span&gt;</span>
+          <span class="s0">&lt;/p&gt;</span>
+          <span class="s0">&lt;ul </span><span class="s2">class</span><span class="s3">=&quot;navbar-nav flex-fill w-100 mb-2&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item dropdown&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot; {% static '#pages' %} &quot; </span><span class="s2">data-toggle</span><span class="s3">=&quot;collapse&quot; </span><span class="s2">aria-expanded</span><span class="s3">=&quot;false&quot; </span><span class="s2">class</span><span class="s3">=&quot;dropdown-toggle nav-link&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fe fe-file fe-16&quot;</span><span class="s0">&gt;&lt;/i&gt;</span>
+                <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-3 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Pages</span><span class="s0">&lt;/span&gt;</span>
+              <span class="s0">&lt;/a&gt;</span>
+              <span class="s0">&lt;ul </span><span class="s2">class</span><span class="s3">=&quot;collapse list-unstyled pl-4 w-100 w-100&quot; </span><span class="s2">id</span><span class="s3">=&quot;pages&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './page-orders.html' %} &quot;</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Orders</span><span class="s0">&lt;/span&gt;</span>
+                  <span class="s0">&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './page-timeline.html' %} &quot;</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Timeline</span><span class="s0">&lt;/span&gt;</span>
+                  <span class="s0">&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './page-invoice.html' %} &quot;</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Invoice</span><span class="s0">&lt;/span&gt;</span>
+                  <span class="s0">&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './page-404.html' %} &quot;</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Page 404</span><span class="s0">&lt;/span&gt;</span>
+                  <span class="s0">&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './page-500.html' %} &quot;</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Page 500</span><span class="s0">&lt;/span&gt;</span>
+                  <span class="s0">&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './page-blank.html' %} &quot;</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Blank</span><span class="s0">&lt;/span&gt;</span>
+                  <span class="s0">&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+              <span class="s0">&lt;/ul&gt;</span>
+            <span class="s0">&lt;/li&gt;</span>
+            <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item dropdown&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot; {% static '#auth' %} &quot; </span><span class="s2">data-toggle</span><span class="s3">=&quot;collapse&quot; </span><span class="s2">aria-expanded</span><span class="s3">=&quot;false&quot; </span><span class="s2">class</span><span class="s3">=&quot;dropdown-toggle nav-link&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fe fe-shield fe-16&quot;</span><span class="s0">&gt;&lt;/i&gt;</span>
+                <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-3 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Authentication</span><span class="s0">&lt;/span&gt;</span>
+              <span class="s0">&lt;/a&gt;</span>
+              <span class="s0">&lt;ul </span><span class="s2">class</span><span class="s3">=&quot;collapse list-unstyled pl-4 w-100&quot; </span><span class="s2">id</span><span class="s3">=&quot;auth&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './auth-login.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1&quot;</span><span class="s0">&gt;</span><span class="s1">Login 1</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './auth-login-half.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1&quot;</span><span class="s0">&gt;</span><span class="s1">Login 2</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './auth-register.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1&quot;</span><span class="s0">&gt;</span><span class="s1">Register</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './auth-resetpw.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1&quot;</span><span class="s0">&gt;</span><span class="s1">Reset Password</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './auth-confirm.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1&quot;</span><span class="s0">&gt;</span><span class="s1">Confirm Password</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+              <span class="s0">&lt;/ul&gt;</span>
+            <span class="s0">&lt;/li&gt;</span>
+            <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item dropdown&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot; {% static '#layouts' %} &quot; </span><span class="s2">data-toggle</span><span class="s3">=&quot;collapse&quot; </span><span class="s2">aria-expanded</span><span class="s3">=&quot;false&quot; </span><span class="s2">class</span><span class="s3">=&quot;dropdown-toggle nav-link&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fe fe-layout fe-16&quot;</span><span class="s0">&gt;&lt;/i&gt;</span>
+                <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-3 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Layout</span><span class="s0">&lt;/span&gt;</span>
+              <span class="s0">&lt;/a&gt;</span>
+              <span class="s0">&lt;ul </span><span class="s2">class</span><span class="s3">=&quot;collapse list-unstyled pl-4 w-100&quot; </span><span class="s2">id</span><span class="s3">=&quot;layouts&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './index.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Default</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './index-horizontal.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Top Navigation</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link pl-3&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static './index-boxed.html' %} &quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-1 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Boxed</span><span class="s0">&lt;/span&gt;&lt;/a&gt;</span>
+                <span class="s0">&lt;/li&gt;</span>
+              <span class="s0">&lt;/ul&gt;</span>
+            <span class="s0">&lt;/li&gt;</span>
+          <span class="s0">&lt;/ul&gt;</span>
+          <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;text-muted nav-heading mt-4 mb-1&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;span&gt;</span><span class="s1">Documentation</span><span class="s0">&lt;/span&gt;</span>
+          <span class="s0">&lt;/p&gt;</span>
+          <span class="s0">&lt;ul </span><span class="s2">class</span><span class="s3">=&quot;navbar-nav flex-fill w-100 mb-2&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;nav-item w-100&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;nav-link&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static '../docs/index.html' %} &quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fe fe-help-circle fe-16&quot;</span><span class="s0">&gt;&lt;/i&gt;</span>
+                <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;ml-3 item-text&quot;</span><span class="s0">&gt;</span><span class="s1">Getting Start</span><span class="s0">&lt;/span&gt;</span>
+              <span class="s0">&lt;/a&gt;</span>
+            <span class="s0">&lt;/li&gt;</span>
+          <span class="s0">&lt;/ul&gt;</span>
+          <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;btn-box w-100 mt-4 mb-1&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;https://themeforest.net/item/tinydash-bootstrap-html-admin-dashboard-template/27511269&quot; </span><span class="s2">target</span><span class="s3">=&quot;_blank&quot; </span><span class="s2">class</span><span class="s3">=&quot;btn mb-2 btn-primary btn-lg btn-block&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fe fe-shopping-cart fe-12 mx-2&quot;</span><span class="s0">&gt;&lt;/i&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;small&quot;</span><span class="s0">&gt;</span><span class="s1">Buy now</span><span class="s0">&lt;/span&gt;</span>
+            <span class="s0">&lt;/a&gt;</span>
+          <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;/nav&gt;</span>
+      <span class="s0">&lt;/aside&gt;</span>
+      <span class="s0">&lt;main </span><span class="s2">role</span><span class="s3">=&quot;main&quot; </span><span class="s2">class</span><span class="s3">=&quot;main-content&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;container-fluid&quot;</span><span class="s0">&gt;</span>
+          <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row justify-content-center&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-12&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row align-items-center mb-2&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;h2 </span><span class="s2">class</span><span class="s3">=&quot;h5 page-title&quot;</span><span class="s0">&gt;</span><span class="s1">Welcome!</span><span class="s0">&lt;/h2&gt;</span>
+                <span class="s0">&lt;/div&gt;</span>
+                <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-auto&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;form </span><span class="s2">class</span><span class="s3">=&quot;form-inline&quot;</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;form-group d-none d-lg-inline&quot;</span><span class="s0">&gt;</span>
+                      <span class="s0">&lt;label </span><span class="s2">for</span><span class="s3">=&quot;reportrange&quot; </span><span class="s2">class</span><span class="s3">=&quot;sr-only&quot;</span><span class="s0">&gt;</span><span class="s1">Date Ranges</span><span class="s0">&lt;/label&gt;</span>
+                      <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;reportrange&quot; </span><span class="s2">class</span><span class="s3">=&quot;px-2 py-2 text-muted&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;small&quot;</span><span class="s0">&gt;&lt;/span&gt;</span>
+                      <span class="s0">&lt;/div&gt;</span>
+                    <span class="s0">&lt;/div&gt;</span>
+                    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;form-group&quot;</span><span class="s0">&gt;</span>
+                      <span class="s0">&lt;button </span><span class="s2">type</span><span class="s3">=&quot;button&quot; </span><span class="s2">class</span><span class="s3">=&quot;btn btn-sm&quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;fe fe-refresh-ccw fe-16 text-muted&quot;</span><span class="s0">&gt;&lt;/span&gt;&lt;/button&gt;</span>
+                      <span class="s0">&lt;button </span><span class="s2">type</span><span class="s3">=&quot;button&quot; </span><span class="s2">class</span><span class="s3">=&quot;btn btn-sm mr-2&quot;</span><span class="s0">&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;fe fe-filter fe-16 text-muted&quot;</span><span class="s0">&gt;&lt;/span&gt;&lt;/button&gt;</span>
+                    <span class="s0">&lt;/div&gt;</span>
+                  <span class="s0">&lt;/form&gt;</span>
+                <span class="s0">&lt;/div&gt;</span>
+              <span class="s0">&lt;/div&gt;</span>
+              <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;card shadow my-4&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;card-body&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row align-items-center my-4&quot;</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-md-4&quot;</span><span class="s0">&gt;</span>
+                      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;mx-4&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;strong </span><span class="s2">class</span><span class="s3">=&quot;mb-0 text-uppercase text-muted&quot;</span><span class="s0">&gt;</span><span class="s1">Earning</span><span class="s0">&lt;/strong&gt;&lt;br /&gt;</span>
+                        <span class="s0">&lt;h3&gt;</span><span class="s1">$2,562.30</span><span class="s0">&lt;/h3&gt;</span>
+                        <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;text-muted&quot;</span><span class="s0">&gt;</span><span class="s1">Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus...</span><span class="s0">&lt;/p&gt;</span>
+                      <span class="s0">&lt;/div&gt;</span>
+                      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row align-items-center&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-6&quot;</span><span class="s0">&gt;</span>
+                          <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;p-4&quot;</span><span class="s0">&gt;</span>
+                            <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;small text-uppercase text-muted mb-0&quot;</span><span class="s0">&gt;</span><span class="s1">Sales</span><span class="s0">&lt;/p&gt;</span>
+                            <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;h2 mb-0&quot;</span><span class="s0">&gt;</span><span class="s1">$1.2K</span><span class="s0">&lt;/span&gt;</span>
+                            <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;small mb-0&quot;</span><span class="s0">&gt;</span>
+                              <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;fe fe-arrow-up text-success fe-12&quot;</span><span class="s0">&gt;&lt;/span&gt;</span>
+                              <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;text-muted ml-1&quot;</span><span class="s0">&gt;</span><span class="s1">+1.5%</span><span class="s0">&lt;/span&gt;</span>
+                            <span class="s0">&lt;/p&gt;</span>
+                          <span class="s0">&lt;/div&gt;</span>
+                        <span class="s0">&lt;/div&gt;</span>
+                        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-6&quot;</span><span class="s0">&gt;</span>
+                          <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;p-4&quot;</span><span class="s0">&gt;</span>
+                            <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;small text-uppercase text-muted mb-0&quot;</span><span class="s0">&gt;</span><span class="s1">Orders</span><span class="s0">&lt;/p&gt;</span>
+                            <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;h2 mb-0&quot;</span><span class="s0">&gt;</span><span class="s1">1K+</span><span class="s0">&lt;/span&gt;</span>
+                            <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;small mb-0&quot;</span><span class="s0">&gt;</span>
+                              <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;fe fe-arrow-up text-success fe-12&quot;</span><span class="s0">&gt;&lt;/span&gt;</span>
+                              <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;text-muted ml-1&quot;</span><span class="s0">&gt;</span><span class="s1">+28.5%</span><span class="s0">&lt;/span&gt;</span>
+                            <span class="s0">&lt;/p&gt;</span>
+                          <span class="s0">&lt;/div&gt;</span>
+                        <span class="s0">&lt;/div&gt;</span>
+                      <span class="s0">&lt;/div&gt;</span>
+                      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row align-items-center&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-6&quot;</span><span class="s0">&gt;</span>
+                          <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;p-4&quot;</span><span class="s0">&gt;</span>
+                            <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;small text-uppercase text-muted mb-0&quot;</span><span class="s0">&gt;</span><span class="s1">Visitors</span><span class="s0">&lt;/p&gt;</span>
+                            <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;h2 mb-0&quot;</span><span class="s0">&gt;</span><span class="s1">1626</span><span class="s0">&lt;/span&gt;</span>
+                            <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;small mb-0&quot;</span><span class="s0">&gt;</span>
+                              <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;text-muted ml-1&quot;</span><span class="s0">&gt;</span><span class="s1">+1.5%</span><span class="s0">&lt;/span&gt;</span>
+                            <span class="s0">&lt;/p&gt;</span>
+                          <span class="s0">&lt;/div&gt;</span>
+                        <span class="s0">&lt;/div&gt;</span>
+                        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-6&quot;</span><span class="s0">&gt;</span>
+                          <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;p-4&quot;</span><span class="s0">&gt;</span>
+                            <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;small text-uppercase text-muted mb-0&quot;</span><span class="s0">&gt;</span><span class="s1">Customers</span><span class="s0">&lt;/p&gt;</span>
+                            <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;h2 mb-0&quot;</span><span class="s0">&gt;</span><span class="s1">186</span><span class="s0">&lt;/span&gt;</span>
+                            <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;small mb-0&quot;</span><span class="s0">&gt;</span>
+                              <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;fe fe-arrow-down text-danger fe-12&quot;</span><span class="s0">&gt;&lt;/span&gt;</span>
+                              <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;text-muted ml-1&quot;</span><span class="s0">&gt;</span><span class="s1">-2.5%</span><span class="s0">&lt;/span&gt;</span>
+                            <span class="s0">&lt;/p&gt;</span>
+                          <span class="s0">&lt;/div&gt;</span>
+                        <span class="s0">&lt;/div&gt;</span>
+                      <span class="s0">&lt;/div&gt;</span>
+                    <span class="s0">&lt;/div&gt;</span>
+                    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-md-8&quot;</span><span class="s0">&gt;</span>
+                      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;mr-4&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;areaChart&quot;</span><span class="s0">&gt;&lt;/div&gt;</span>
+                      <span class="s0">&lt;/div&gt;</span>
+                    <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- .col-md-8 --&gt;</span>
+                  <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- end section --&gt;</span>
+                <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- .card-body --&gt;</span>
+              <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- .card --&gt;</span>
+              <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-md-4&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;card shadow eq-card mb-4&quot;</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;card-body&quot;</span><span class="s0">&gt;</span>
+                      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;card-title&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;strong&gt;</span><span class="s1">Sumerize</span><span class="s0">&lt;/strong&gt;</span>
+                        <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;float-right small text-muted&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static '#!' %} &quot;</span><span class="s0">&gt;</span><span class="s1">View all</span><span class="s0">&lt;/a&gt;</span>
+                      <span class="s0">&lt;/div&gt;</span>
+                      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row mt-b&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-6 text-center mb-3 border-right&quot;</span><span class="s0">&gt;</span>
+                          <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;text-muted mb-1&quot;</span><span class="s0">&gt;</span><span class="s1">Today</span><span class="s0">&lt;/p&gt;</span>
+                          <span class="s0">&lt;h6 </span><span class="s2">class</span><span class="s3">=&quot;mb-1&quot;</span><span class="s0">&gt;</span><span class="s1">830</span><span class="s0">&lt;/h6&gt;</span>
+                          <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;text-muted mb-2&quot;</span><span class="s0">&gt;</span><span class="s1">+5.5% </span><span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;fe fe-arrow-up fe-12 text-success&quot;</span><span class="s0">&gt;&lt;/span&gt;&lt;/p&gt;</span>
+                        <span class="s0">&lt;/div&gt;</span>
+                        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-6 text-center mb-3&quot;</span><span class="s0">&gt;</span>
+                          <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;text-muted mb-1&quot;</span><span class="s0">&gt;</span><span class="s1">Yesterday</span><span class="s0">&lt;/p&gt;</span>
+                          <span class="s0">&lt;h6 </span><span class="s2">class</span><span class="s3">=&quot;mb-1&quot;</span><span class="s0">&gt;</span><span class="s1">4,830</span><span class="s0">&lt;/h6&gt;</span>
+                          <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;text-muted&quot;</span><span class="s0">&gt;</span><span class="s1">-5.5%</span><span class="s0">&lt;/p&gt;</span>
+                        <span class="s0">&lt;/div&gt;</span>
+                        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-6 text-center border-right&quot;</span><span class="s0">&gt;</span>
+                          <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;text-muted mb-1&quot;</span><span class="s0">&gt;</span><span class="s1">This Week</span><span class="s0">&lt;/p&gt;</span>
+                          <span class="s0">&lt;h6 </span><span class="s2">class</span><span class="s3">=&quot;mb-1&quot;</span><span class="s0">&gt;</span><span class="s1">680</span><span class="s0">&lt;/h6&gt;</span>
+                          <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;text-muted mb-2&quot;</span><span class="s0">&gt;</span><span class="s1">+1.5% </span><span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;fe fe-arrow-up fe-12 text-warning&quot;</span><span class="s0">&gt;&lt;/span&gt;&lt;/p&gt;</span>
+                        <span class="s0">&lt;/div&gt;</span>
+                        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-6 text-center&quot;</span><span class="s0">&gt;</span>
+                          <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;text-muted mb-1&quot;</span><span class="s0">&gt;</span><span class="s1">Last Week</span><span class="s0">&lt;/p&gt;</span>
+                          <span class="s0">&lt;h6 </span><span class="s2">class</span><span class="s3">=&quot;mb-1&quot;</span><span class="s0">&gt;</span><span class="s1">430</span><span class="s0">&lt;/h6&gt;</span>
+                          <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;text-muted&quot;</span><span class="s0">&gt;</span><span class="s1">-5.5%</span><span class="s0">&lt;/p&gt;</span>
+                        <span class="s0">&lt;/div&gt;</span>
+                      <span class="s0">&lt;/div&gt;</span>
+                      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;chart-widget&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;columnChartWidget&quot; </span><span class="s2">width</span><span class="s3">=&quot;300&quot; </span><span class="s2">height</span><span class="s3">=&quot;200&quot;</span><span class="s0">&gt;&lt;/div&gt;</span>
+                      <span class="s0">&lt;/div&gt;</span>
+                    <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- .card-body --&gt;</span>
+                  <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- .card --&gt;</span>
+                <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- .col --&gt;</span>
+                <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-md-4&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;card shadow eq-card mb-4&quot;</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;card-body&quot;</span><span class="s0">&gt;</span>
+                      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;card-title&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;strong&gt;</span><span class="s1">Services</span><span class="s0">&lt;/strong&gt;</span>
+                        <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;float-right small text-muted&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static '#!' %} &quot;</span><span class="s0">&gt;</span><span class="s1">View all</span><span class="s0">&lt;/a&gt;</span>
+                      <span class="s0">&lt;/div&gt;</span>
+                      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-md-12&quot;</span><span class="s0">&gt;</span>
+                          <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row align-items-center my-2&quot;</span><span class="s0">&gt;</span>
+                            <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col&quot;</span><span class="s0">&gt;</span>
+                              <span class="s0">&lt;strong&gt;</span><span class="s1">Cloud Server</span><span class="s0">&lt;/strong&gt;</span>
+                              <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;my-0 text-muted small&quot;</span><span class="s0">&gt;</span><span class="s1">Global, Services</span><span class="s0">&lt;/div&gt;</span>
+                            <span class="s0">&lt;/div&gt;</span>
+                            <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-auto&quot;</span><span class="s0">&gt;</span>
+                              <span class="s0">&lt;strong&gt;</span><span class="s1">+85%</span><span class="s0">&lt;/strong&gt;</span>
+                            <span class="s0">&lt;/div&gt;</span>
+                            <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-3&quot;</span><span class="s0">&gt;</span>
+                              <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;progress&quot; </span><span class="s2">style</span><span class="s3">=&quot;height: 4px;&quot;</span><span class="s0">&gt;</span>
+                                <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;progress-bar&quot; </span><span class="s2">role</span><span class="s3">=&quot;progressbar&quot; </span><span class="s2">style</span><span class="s3">=&quot;width: 85%&quot; </span><span class="s2">aria-valuenow</span><span class="s3">=&quot;85&quot; </span><span class="s2">aria-valuemin</span><span class="s3">=&quot;0&quot; </span><span class="s2">aria-valuemax</span><span class="s3">=&quot;100&quot;</span><span class="s0">&gt;&lt;/div&gt;</span>
+                              <span class="s0">&lt;/div&gt;</span>
+                            <span class="s0">&lt;/div&gt;</span>
+                          <span class="s0">&lt;/div&gt;</span>
+                          <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row align-items-center my-2&quot;</span><span class="s0">&gt;</span>
+                            <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col&quot;</span><span class="s0">&gt;</span>
+                              <span class="s0">&lt;strong&gt;</span><span class="s1">CDN</span><span class="s0">&lt;/strong&gt;</span>
+                              <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;my-0 text-muted small&quot;</span><span class="s0">&gt;</span><span class="s1">Global, Services</span><span class="s0">&lt;/div&gt;</span>
+                            <span class="s0">&lt;/div&gt;</span>
+                            <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-auto&quot;</span><span class="s0">&gt;</span>
+                              <span class="s0">&lt;strong&gt;</span><span class="s1">+75%</span><span class="s0">&lt;/strong&gt;</span>
+                            <span class="s0">&lt;/div&gt;</span>
+                            <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-3&quot;</span><span class="s0">&gt;</span>
+                              <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;progress&quot; </span><span class="s2">style</span><span class="s3">=&quot;height: 4px;&quot;</span><span class="s0">&gt;</span>
+                                <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;progress-bar&quot; </span><span class="s2">role</span><span class="s3">=&quot;progressbar&quot; </span><span class="s2">style</span><span class="s3">=&quot;width: 75%&quot; </span><span class="s2">aria-valuenow</span><span class="s3">=&quot;75&quot; </span><span class="s2">aria-valuemin</span><span class="s3">=&quot;0&quot; </span><span class="s2">aria-valuemax</span><span class="s3">=&quot;100&quot;</span><span class="s0">&gt;&lt;/div&gt;</span>
+                              <span class="s0">&lt;/div&gt;</span>
+                            <span class="s0">&lt;/div&gt;</span>
+                          <span class="s0">&lt;/div&gt;</span>
+                          <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row align-items-center my-2&quot;</span><span class="s0">&gt;</span>
+                            <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col&quot;</span><span class="s0">&gt;</span>
+                              <span class="s0">&lt;strong&gt;</span><span class="s1">Databases</span><span class="s0">&lt;/strong&gt;</span>
+                              <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;my-0 text-muted small&quot;</span><span class="s0">&gt;</span><span class="s1">Local, DC</span><span class="s0">&lt;/div&gt;</span>
+                            <span class="s0">&lt;/div&gt;</span>
+                            <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-auto&quot;</span><span class="s0">&gt;</span>
+                              <span class="s0">&lt;strong&gt;</span><span class="s1">+62%</span><span class="s0">&lt;/strong&gt;</span>
+                            <span class="s0">&lt;/div&gt;</span>
+                            <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-3&quot;</span><span class="s0">&gt;</span>
+                              <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;progress&quot; </span><span class="s2">style</span><span class="s3">=&quot;height: 4px;&quot;</span><span class="s0">&gt;</span>
+                                <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;progress-bar&quot; </span><span class="s2">role</span><span class="s3">=&quot;progressbar&quot; </span><span class="s2">style</span><span class="s3">=&quot;width: 62%&quot; </span><span class="s2">aria-valuenow</span><span class="s3">=&quot;62&quot; </span><span class="s2">aria-valuemin</span><span class="s3">=&quot;0&quot; </span><span class="s2">aria-valuemax</span><span class="s3">=&quot;100&quot;</span><span class="s0">&gt;&lt;/div&gt;</span>
+                              <span class="s0">&lt;/div&gt;</span>
+                            <span class="s0">&lt;/div&gt;</span>
+                          <span class="s0">&lt;/div&gt;</span>
+                        <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- .col-md-12 --&gt;</span>
+                        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-md-12&quot;</span><span class="s0">&gt;</span>
+                          <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;chart-box&quot; </span><span class="s2">class</span><span class="s3">=&quot;mt-3&quot;</span><span class="s0">&gt;</span>
+                            <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;pieChartWidget&quot;</span><span class="s0">&gt;&lt;/div&gt;</span>
+                          <span class="s0">&lt;/div&gt;</span>
+                        <span class="s0">&lt;/div&gt;</span>
+                      <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- .row --&gt;</span>
+                    <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- .card-body --&gt;</span>
+                  <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- .card --&gt;</span>
+                <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- .col-md-4 --&gt;</span>
+                <span class="s4">&lt;!-- Map --&gt;</span>
+                <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-md-4&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;card shadow mb-4&quot;</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;card-body&quot;</span><span class="s0">&gt;</span>
+                      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;card-title&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;strong&gt;</span><span class="s1">Region</span><span class="s0">&lt;/strong&gt;</span>
+                        <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;float-right small text-muted&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static '#!' %} &quot;</span><span class="s0">&gt;</span><span class="s1">View all</span><span class="s0">&lt;/a&gt;</span>
+                      <span class="s0">&lt;/div&gt;</span>
+                      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-md-12&quot;</span><span class="s0">&gt;</span>
+                          <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row align-items-center my-2&quot;</span><span class="s0">&gt;</span>
+                            <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col&quot;</span><span class="s0">&gt;</span>
+                              <span class="s0">&lt;strong&gt;</span><span class="s1">Paris</span><span class="s0">&lt;/strong&gt;</span>
+                              <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;my-0 text-muted small&quot;</span><span class="s0">&gt;</span><span class="s1">France</span><span class="s0">&lt;/div&gt;</span>
+                            <span class="s0">&lt;/div&gt;</span>
+                            <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-auto&quot;</span><span class="s0">&gt;</span>
+                              <span class="s0">&lt;strong&gt;</span><span class="s1">+85%</span><span class="s0">&lt;/strong&gt;</span>
+                            <span class="s0">&lt;/div&gt;</span>
+                          <span class="s0">&lt;/div&gt;</span>
+                          <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row align-items-center my-2&quot;</span><span class="s0">&gt;</span>
+                            <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col&quot;</span><span class="s0">&gt;</span>
+                              <span class="s0">&lt;strong&gt;</span><span class="s1">Amsterdam</span><span class="s0">&lt;/strong&gt;</span>
+                              <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;my-0 text-muted small&quot;</span><span class="s0">&gt;</span><span class="s1">Netherlands</span><span class="s0">&lt;/div&gt;</span>
+                            <span class="s0">&lt;/div&gt;</span>
+                            <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-auto&quot;</span><span class="s0">&gt;</span>
+                              <span class="s0">&lt;strong&gt;</span><span class="s1">+75%</span><span class="s0">&lt;/strong&gt;</span>
+                            <span class="s0">&lt;/div&gt;</span>
+                          <span class="s0">&lt;/div&gt;</span>
+                          <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row align-items-center mt-2&quot;</span><span class="s0">&gt;</span>
+                            <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col&quot;</span><span class="s0">&gt;</span>
+                              <span class="s0">&lt;strong&gt;</span><span class="s1">Sydney</span><span class="s0">&lt;/strong&gt;</span>
+                              <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;my-0 text-muted small&quot;</span><span class="s0">&gt;</span><span class="s1">Australia</span><span class="s0">&lt;/div&gt;</span>
+                            <span class="s0">&lt;/div&gt;</span>
+                            <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-auto&quot;</span><span class="s0">&gt;</span>
+                              <span class="s0">&lt;strong&gt;</span><span class="s1">+20%</span><span class="s0">&lt;/strong&gt;</span>
+                            <span class="s0">&lt;/div&gt;</span>
+                          <span class="s0">&lt;/div&gt;</span>
+                        <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- .col-md-12 --&gt;</span>
+                        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-md-12 mt-4&quot;</span><span class="s0">&gt;</span>
+                          <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;map-box&quot; </span><span class="s2">style</span><span class="s3">=&quot;position: relative; width: 320px; min-height: 170px; margin:0 auto;&quot;</span><span class="s0">&gt;</span>
+                            <span class="s0">&lt;div </span><span class="s2">id</span><span class="s3">=&quot;dataMapUSA&quot;</span><span class="s0">&gt;&lt;/div&gt;</span>
+                          <span class="s0">&lt;/div&gt;</span>
+                        <span class="s0">&lt;/div&gt;</span>
+                      <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- .row --&gt;</span>
+                    <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- / .card-body --&gt;</span>
+                  <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- / .card --&gt;</span>
+                <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- / .col-md-6 --&gt;</span>
+              <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- / .row --&gt;</span>
+              <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row&quot;</span><span class="s0">&gt;</span>
+                <span class="s4">&lt;!-- Recent orders --&gt;</span>
+                <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-md-8&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;card shadow eq-card&quot;</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;card-header&quot;</span><span class="s0">&gt;</span>
+                      <span class="s0">&lt;strong </span><span class="s2">class</span><span class="s3">=&quot;card-title&quot;</span><span class="s0">&gt;</span><span class="s1">Recent Orders</span><span class="s0">&lt;/strong&gt;</span>
+                      <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;float-right small text-muted&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static '#!' %} &quot;</span><span class="s0">&gt;</span><span class="s1">View all</span><span class="s0">&lt;/a&gt;</span>
+                    <span class="s0">&lt;/div&gt;</span>
+                    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;card-body&quot;</span><span class="s0">&gt;</span>
+                      <span class="s0">&lt;table </span><span class="s2">class</span><span class="s3">=&quot;table table-hover table-borderless table-striped mt-n3 mb-n1&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;thead&gt;</span>
+                          <span class="s0">&lt;tr&gt;</span>
+                            <span class="s0">&lt;th&gt;</span><span class="s1">ID</span><span class="s0">&lt;/th&gt;</span>
+                            <span class="s0">&lt;th&gt;</span><span class="s1">Name</span><span class="s0">&lt;/th&gt;</span>
+                            <span class="s0">&lt;th&gt;</span><span class="s1">Company</span><span class="s0">&lt;/th&gt;</span>
+                            <span class="s0">&lt;th&gt;</span><span class="s1">Date</span><span class="s0">&lt;/th&gt;</span>
+                            <span class="s0">&lt;th&gt;</span><span class="s1">Status</span><span class="s0">&lt;/th&gt;</span>
+                          <span class="s0">&lt;/tr&gt;</span>
+                        <span class="s0">&lt;/thead&gt;</span>
+                        <span class="s0">&lt;tbody&gt;</span>
+                          <span class="s0">&lt;tr&gt;</span>
+                            <span class="s0">&lt;td&gt;</span><span class="s1">3224</span><span class="s0">&lt;/td&gt;</span>
+                            <span class="s0">&lt;th </span><span class="s2">scope</span><span class="s3">=&quot;col&quot;</span><span class="s0">&gt;</span><span class="s1">Keith Baird</span><span class="s0">&lt;/th&gt;</span>
+                            <span class="s0">&lt;td&gt;</span><span class="s1">Enim Limited</span><span class="s0">&lt;br /&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;small text-muted&quot;</span><span class="s0">&gt;</span><span class="s1">901-6206 Cras Av.</span><span class="s0">&lt;/span&gt;&lt;/td&gt;</span>
+                            <span class="s0">&lt;td&gt;</span><span class="s1">Apr 24, 2019</span><span class="s0">&lt;/td&gt;</span>
+                            <span class="s0">&lt;td&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;dot dot-lg bg-warning mr-2&quot;</span><span class="s0">&gt;&lt;/span&gt;&lt;/td&gt;</span>
+                          <span class="s0">&lt;/tr&gt;</span>
+                          <span class="s0">&lt;tr&gt;</span>
+                            <span class="s0">&lt;td&gt;</span><span class="s1">3218</span><span class="s0">&lt;/td&gt;</span>
+                            <span class="s0">&lt;th </span><span class="s2">scope</span><span class="s3">=&quot;col&quot;</span><span class="s0">&gt;</span><span class="s1">Graham Price</span><span class="s0">&lt;/th&gt;</span>
+                            <span class="s0">&lt;td&gt;</span><span class="s1">Nunc Lectus Incorporated</span><span class="s0">&lt;br /&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;small text-muted&quot;</span><span class="s0">&gt;</span><span class="s1">Ap #705-5389 Id St.</span><span class="s0">&lt;/span&gt;&lt;/td&gt;</span>
+                            <span class="s0">&lt;td&gt;</span><span class="s1">May 23, 2020</span><span class="s0">&lt;/td&gt;</span>
+                            <span class="s0">&lt;td&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;dot dot-lg bg-success mr-2&quot;</span><span class="s0">&gt;&lt;/span&gt;&lt;/td&gt;</span>
+                          <span class="s0">&lt;/tr&gt;</span>
+                          <span class="s0">&lt;tr&gt;</span>
+                            <span class="s0">&lt;td&gt;</span><span class="s1">2651</span><span class="s0">&lt;/td&gt;</span>
+                            <span class="s0">&lt;th </span><span class="s2">scope</span><span class="s3">=&quot;col&quot;</span><span class="s0">&gt;</span><span class="s1">Reuben Orr</span><span class="s0">&lt;/th&gt;</span>
+                            <span class="s0">&lt;td&gt;</span><span class="s1">Nisi Aenean Eget Limited</span><span class="s0">&lt;br /&gt;</span>
+                              <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;small text-muted&quot;</span><span class="s0">&gt;</span><span class="s1">7425 Malesuada Rd.</span><span class="s0">&lt;/span&gt;&lt;/td&gt;</span>
+                            <span class="s0">&lt;td&gt;</span><span class="s1">Nov 4, 2019</span><span class="s0">&lt;/td&gt;</span>
+                            <span class="s0">&lt;td&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;dot dot-lg bg-warning mr-2&quot;</span><span class="s0">&gt;&lt;/span&gt;&lt;/td&gt;</span>
+                          <span class="s0">&lt;/tr&gt;</span>
+                          <span class="s0">&lt;tr&gt;</span>
+                            <span class="s0">&lt;td&gt;</span><span class="s1">2636</span><span class="s0">&lt;/td&gt;</span>
+                            <span class="s0">&lt;th </span><span class="s2">scope</span><span class="s3">=&quot;col&quot;</span><span class="s0">&gt;</span><span class="s1">Akeem Holder</span><span class="s0">&lt;/th&gt;</span>
+                            <span class="s0">&lt;td&gt;</span><span class="s1">Pellentesque Associates</span><span class="s0">&lt;br /&gt;</span>
+                              <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;small text-muted&quot;</span><span class="s0">&gt;</span><span class="s1">896 Sodales St.</span><span class="s0">&lt;/span&gt;&lt;/td&gt;</span>
+                            <span class="s0">&lt;td&gt;</span><span class="s1">Mar 27, 2020</span><span class="s0">&lt;/td&gt;</span>
+                            <span class="s0">&lt;td&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;dot dot-lg bg-danger mr-2&quot;</span><span class="s0">&gt;&lt;/span&gt;&lt;/td&gt;</span>
+                          <span class="s0">&lt;/tr&gt;</span>
+                          <span class="s0">&lt;tr&gt;</span>
+                            <span class="s0">&lt;td&gt;</span><span class="s1">2757</span><span class="s0">&lt;/td&gt;</span>
+                            <span class="s0">&lt;th </span><span class="s2">scope</span><span class="s3">=&quot;col&quot;</span><span class="s0">&gt;</span><span class="s1">Beau Barrera</span><span class="s0">&lt;/th&gt;</span>
+                            <span class="s0">&lt;td&gt;</span><span class="s1">Augue Incorporated</span><span class="s0">&lt;br /&gt;</span>
+                              <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;small text-muted&quot;</span><span class="s0">&gt;</span><span class="s1">4583 Id St.</span><span class="s0">&lt;/span&gt;&lt;/td&gt;</span>
+                            <span class="s0">&lt;td&gt;</span><span class="s1">Jan 13, 2020</span><span class="s0">&lt;/td&gt;</span>
+                            <span class="s0">&lt;td&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;dot dot-lg bg-success mr-2&quot;</span><span class="s0">&gt;&lt;/span&gt;&lt;/td&gt;</span>
+                          <span class="s0">&lt;/tr&gt;</span>
+                        <span class="s0">&lt;/tbody&gt;</span>
+                      <span class="s0">&lt;/table&gt;</span>
+                    <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- .card-body --&gt;</span>
+                  <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- .card --&gt;</span>
+                <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- / .col-md-8 --&gt;</span>
+                <span class="s4">&lt;!-- Recent Activity --&gt;</span>
+                <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-md-4&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;card shadow eq-card timeline&quot;</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;card-header&quot;</span><span class="s0">&gt;</span>
+                      <span class="s0">&lt;strong </span><span class="s2">class</span><span class="s3">=&quot;card-title&quot;</span><span class="s0">&gt;</span><span class="s1">Recent Activity</span><span class="s0">&lt;/strong&gt;</span>
+                      <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;float-right small text-muted&quot; </span><span class="s2">href</span><span class="s3">=&quot; {% static '#!' %} &quot;</span><span class="s0">&gt;</span><span class="s1">View all</span><span class="s0">&lt;/a&gt;</span>
+                    <span class="s0">&lt;/div&gt;</span>
+                    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;card-body&quot; </span><span class="s2">data-simplebar style</span><span class="s3">=&quot;height: 360px; overflow-y: auto; overflow-x: hidden;&quot;</span><span class="s0">&gt;</span>
+                      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;pb-3 timeline-item item-primary&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;pl-5&quot;</span><span class="s0">&gt;</span>
+                          <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;mb-1 small&quot;</span><span class="s0">&gt;&lt;strong&gt;</span><span class="s1">@Brown Asher</span><span class="s0">&lt;/strong&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;text-muted mx-2&quot;</span><span class="s0">&gt;</span><span class="s1">Just create new layout Index, form, table</span><span class="s0">&lt;/span&gt;&lt;strong&gt;</span><span class="s1">Tiny Admin</span><span class="s0">&lt;/strong&gt;&lt;/div&gt;</span>
+                          <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;small text-muted&quot;</span><span class="s0">&gt;</span><span class="s1">Creative Design </span><span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;badge badge-light&quot;</span><span class="s0">&gt;</span><span class="s1">1h ago</span><span class="s0">&lt;/span&gt;</span>
+                          <span class="s0">&lt;/p&gt;</span>
+                        <span class="s0">&lt;/div&gt;</span>
+                      <span class="s0">&lt;/div&gt;</span>
+                      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;pb-3 timeline-item item-warning&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;pl-5&quot;</span><span class="s0">&gt;</span>
+                          <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;mb-3 small&quot;</span><span class="s0">&gt;&lt;strong&gt;</span><span class="s1">@Fletcher Everett</span><span class="s0">&lt;/strong&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;text-muted mx-2&quot;</span><span class="s0">&gt;</span><span class="s1">created new group for</span><span class="s0">&lt;/span&gt;&lt;strong&gt;</span><span class="s1">Tiny Admin</span><span class="s0">&lt;/strong&gt;&lt;/div&gt;</span>
+                          <span class="s0">&lt;ul </span><span class="s2">class</span><span class="s3">=&quot;avatars-list mb-2&quot;</span><span class="s0">&gt;</span>
+                            <span class="s0">&lt;li&gt;</span>
+                              <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot; {% static '#!' %} &quot; </span><span class="s2">class</span><span class="s3">=&quot;avatar avatar-sm&quot;</span><span class="s0">&gt;</span>
+                                <span class="s0">&lt;img </span><span class="s2">alt</span><span class="s3">=&quot;...&quot; </span><span class="s2">class</span><span class="s3">=&quot;avatar-img rounded-circle&quot; </span><span class="s2">src</span><span class="s3">=&quot; {% static './assets/avatars/face-1.jpg' %} &quot;</span><span class="s0">&gt;</span>
+                              <span class="s0">&lt;/a&gt;</span>
+                            <span class="s0">&lt;/li&gt;</span>
+                            <span class="s0">&lt;li&gt;</span>
+                              <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot; {% static '#!' %} &quot; </span><span class="s2">class</span><span class="s3">=&quot;avatar avatar-sm&quot;</span><span class="s0">&gt;</span>
+                                <span class="s0">&lt;img </span><span class="s2">alt</span><span class="s3">=&quot;...&quot; </span><span class="s2">class</span><span class="s3">=&quot;avatar-img rounded-circle&quot; </span><span class="s2">src</span><span class="s3">=&quot; {% static './assets/avatars/face-4.jpg' %} &quot;</span><span class="s0">&gt;</span>
+                              <span class="s0">&lt;/a&gt;</span>
+                            <span class="s0">&lt;/li&gt;</span>
+                            <span class="s0">&lt;li&gt;</span>
+                              <span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot; {% static '#!' %} &quot; </span><span class="s2">class</span><span class="s3">=&quot;avatar avatar-sm&quot;</span><span class="s0">&gt;</span>
+                                <span class="s0">&lt;img </span><span class="s2">alt</span><span class="s3">=&quot;...&quot; </span><span class="s2">class</span><span class="s3">=&quot;avatar-img rounded-circle&quot; </span><span class="s2">src</span><span class="s3">=&quot; {% static './assets/avatars/face-3.jpg' %} &quot;</span><span class="s0">&gt;</span>
+                              <span class="s0">&lt;/a&gt;</span>
+                            <span class="s0">&lt;/li&gt;</span>
+                          <span class="s0">&lt;/ul&gt;</span>
+                          <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;small text-muted&quot;</span><span class="s0">&gt;</span><span class="s1">Front-End Development </span><span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;badge badge-light&quot;</span><span class="s0">&gt;</span><span class="s1">1h ago</span><span class="s0">&lt;/span&gt;</span>
+                          <span class="s0">&lt;/p&gt;</span>
+                        <span class="s0">&lt;/div&gt;</span>
+                      <span class="s0">&lt;/div&gt;</span>
+                      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;pb-3 timeline-item item-success&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;pl-5&quot;</span><span class="s0">&gt;</span>
+                          <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;mb-2 small&quot;</span><span class="s0">&gt;&lt;strong&gt;</span><span class="s1">@Kelley Sonya</span><span class="s0">&lt;/strong&gt;&lt;span </span><span class="s2">class</span><span class="s3">=&quot;text-muted mx-2&quot;</span><span class="s0">&gt;</span><span class="s1">has commented on</span><span class="s0">&lt;/span&gt;&lt;strong&gt;</span><span class="s1">Advanced table</span><span class="s0">&lt;/strong&gt;&lt;/div&gt;</span>
+                          <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;card d-inline-flex mb-2&quot;</span><span class="s0">&gt;</span>
+                            <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;card-body bg-light small py-2 px-3&quot;</span><span class="s0">&gt; </span><span class="s1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span><span class="s0">&lt;/div&gt;</span>
+                          <span class="s0">&lt;/div&gt;</span>
+                          <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;small text-muted&quot;</span><span class="s0">&gt;</span><span class="s1">Back-End Development </span><span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;badge badge-light&quot;</span><span class="s0">&gt;</span><span class="s1">1h ago</span><span class="s0">&lt;/span&gt;</span>
+                          <span class="s0">&lt;/p&gt;</span>
+                        <span class="s0">&lt;/div&gt;</span>
+                      <span class="s0">&lt;/div&gt;</span>
+                    <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- / .card-body --&gt;</span>
+                  <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- / .card --&gt;</span>
+                <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- / .col-md-3 --&gt;</span>
+              <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- end section --&gt;</span>
+            <span class="s0">&lt;/div&gt;</span>
+          <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- .row --&gt;</span>
+        <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- .container-fluid --&gt;</span>
+        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;modal fade modal-notif modal-slide&quot; </span><span class="s2">tabindex</span><span class="s3">=&quot;-1&quot; </span><span class="s2">role</span><span class="s3">=&quot;dialog&quot; </span><span class="s2">aria-labelledby</span><span class="s3">=&quot;defaultModalLabel&quot; </span><span class="s2">aria-hidden</span><span class="s3">=&quot;true&quot;</span><span class="s0">&gt;</span>
+          <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;modal-dialog modal-sm&quot; </span><span class="s2">role</span><span class="s3">=&quot;document&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;modal-content&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;modal-header&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;h5 </span><span class="s2">class</span><span class="s3">=&quot;modal-title&quot; </span><span class="s2">id</span><span class="s3">=&quot;defaultModalLabel&quot;</span><span class="s0">&gt;</span><span class="s1">Notifications</span><span class="s0">&lt;/h5&gt;</span>
+                <span class="s0">&lt;button </span><span class="s2">type</span><span class="s3">=&quot;button&quot; </span><span class="s2">class</span><span class="s3">=&quot;close&quot; </span><span class="s2">data-dismiss</span><span class="s3">=&quot;modal&quot; </span><span class="s2">aria-label</span><span class="s3">=&quot;Close&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;span </span><span class="s2">aria-hidden</span><span class="s3">=&quot;true&quot;</span><span class="s0">&gt;</span><span class="s5">&amp;times;</span><span class="s0">&lt;/span&gt;</span>
+                <span class="s0">&lt;/button&gt;</span>
+              <span class="s0">&lt;/div&gt;</span>
+              <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;modal-body&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;list-group list-group-flush my-n3&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;list-group-item bg-transparent&quot;</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row align-items-center&quot;</span><span class="s0">&gt;</span>
+                      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-auto&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;fe fe-box fe-24&quot;</span><span class="s0">&gt;&lt;/span&gt;</span>
+                      <span class="s0">&lt;/div&gt;</span>
+                      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;small&gt;&lt;strong&gt;</span><span class="s1">Package has uploaded successfull</span><span class="s0">&lt;/strong&gt;&lt;/small&gt;</span>
+                        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;my-0 text-muted small&quot;</span><span class="s0">&gt;</span><span class="s1">Package is zipped and uploaded</span><span class="s0">&lt;/div&gt;</span>
+                        <span class="s0">&lt;small </span><span class="s2">class</span><span class="s3">=&quot;badge badge-pill badge-light text-muted&quot;</span><span class="s0">&gt;</span><span class="s1">1m ago</span><span class="s0">&lt;/small&gt;</span>
+                      <span class="s0">&lt;/div&gt;</span>
+                    <span class="s0">&lt;/div&gt;</span>
+                  <span class="s0">&lt;/div&gt;</span>
+                  <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;list-group-item bg-transparent&quot;</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row align-items-center&quot;</span><span class="s0">&gt;</span>
+                      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-auto&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;fe fe-download fe-24&quot;</span><span class="s0">&gt;&lt;/span&gt;</span>
+                      <span class="s0">&lt;/div&gt;</span>
+                      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;small&gt;&lt;strong&gt;</span><span class="s1">Widgets are updated successfull</span><span class="s0">&lt;/strong&gt;&lt;/small&gt;</span>
+                        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;my-0 text-muted small&quot;</span><span class="s0">&gt;</span><span class="s1">Just create new layout Index, form, table</span><span class="s0">&lt;/div&gt;</span>
+                        <span class="s0">&lt;small </span><span class="s2">class</span><span class="s3">=&quot;badge badge-pill badge-light text-muted&quot;</span><span class="s0">&gt;</span><span class="s1">2m ago</span><span class="s0">&lt;/small&gt;</span>
+                      <span class="s0">&lt;/div&gt;</span>
+                    <span class="s0">&lt;/div&gt;</span>
+                  <span class="s0">&lt;/div&gt;</span>
+                  <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;list-group-item bg-transparent&quot;</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row align-items-center&quot;</span><span class="s0">&gt;</span>
+                      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-auto&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;fe fe-inbox fe-24&quot;</span><span class="s0">&gt;&lt;/span&gt;</span>
+                      <span class="s0">&lt;/div&gt;</span>
+                      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;small&gt;&lt;strong&gt;</span><span class="s1">Notifications have been sent</span><span class="s0">&lt;/strong&gt;&lt;/small&gt;</span>
+                        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;my-0 text-muted small&quot;</span><span class="s0">&gt;</span><span class="s1">Fusce dapibus, tellus ac cursus commodo</span><span class="s0">&lt;/div&gt;</span>
+                        <span class="s0">&lt;small </span><span class="s2">class</span><span class="s3">=&quot;badge badge-pill badge-light text-muted&quot;</span><span class="s0">&gt;</span><span class="s1">30m ago</span><span class="s0">&lt;/small&gt;</span>
+                      <span class="s0">&lt;/div&gt;</span>
+                    <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- / .row --&gt;</span>
+                  <span class="s0">&lt;/div&gt;</span>
+                  <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;list-group-item bg-transparent&quot;</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row align-items-center&quot;</span><span class="s0">&gt;</span>
+                      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-auto&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;fe fe-link fe-24&quot;</span><span class="s0">&gt;&lt;/span&gt;</span>
+                      <span class="s0">&lt;/div&gt;</span>
+                      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col&quot;</span><span class="s0">&gt;</span>
+                        <span class="s0">&lt;small&gt;&lt;strong&gt;</span><span class="s1">Link was attached to menu</span><span class="s0">&lt;/strong&gt;&lt;/small&gt;</span>
+                        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;my-0 text-muted small&quot;</span><span class="s0">&gt;</span><span class="s1">New layout has been attached to the menu</span><span class="s0">&lt;/div&gt;</span>
+                        <span class="s0">&lt;small </span><span class="s2">class</span><span class="s3">=&quot;badge badge-pill badge-light text-muted&quot;</span><span class="s0">&gt;</span><span class="s1">1h ago</span><span class="s0">&lt;/small&gt;</span>
+                      <span class="s0">&lt;/div&gt;</span>
+                    <span class="s0">&lt;/div&gt;</span>
+                  <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- / .row --&gt;</span>
+                <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- / .list-group --&gt;</span>
+              <span class="s0">&lt;/div&gt;</span>
+              <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;modal-footer&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;button </span><span class="s2">type</span><span class="s3">=&quot;button&quot; </span><span class="s2">class</span><span class="s3">=&quot;btn btn-secondary btn-block&quot; </span><span class="s2">data-dismiss</span><span class="s3">=&quot;modal&quot;</span><span class="s0">&gt;</span><span class="s1">Clear All</span><span class="s0">&lt;/button&gt;</span>
+              <span class="s0">&lt;/div&gt;</span>
+            <span class="s0">&lt;/div&gt;</span>
+          <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;modal fade modal-shortcut modal-slide&quot; </span><span class="s2">tabindex</span><span class="s3">=&quot;-1&quot; </span><span class="s2">role</span><span class="s3">=&quot;dialog&quot; </span><span class="s2">aria-labelledby</span><span class="s3">=&quot;defaultModalLabel&quot; </span><span class="s2">aria-hidden</span><span class="s3">=&quot;true&quot;</span><span class="s0">&gt;</span>
+          <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;modal-dialog&quot; </span><span class="s2">role</span><span class="s3">=&quot;document&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;modal-content&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;modal-header&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;h5 </span><span class="s2">class</span><span class="s3">=&quot;modal-title&quot; </span><span class="s2">id</span><span class="s3">=&quot;defaultModalLabel&quot;</span><span class="s0">&gt;</span><span class="s1">Shortcuts</span><span class="s0">&lt;/h5&gt;</span>
+                <span class="s0">&lt;button </span><span class="s2">type</span><span class="s3">=&quot;button&quot; </span><span class="s2">class</span><span class="s3">=&quot;close&quot; </span><span class="s2">data-dismiss</span><span class="s3">=&quot;modal&quot; </span><span class="s2">aria-label</span><span class="s3">=&quot;Close&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;span </span><span class="s2">aria-hidden</span><span class="s3">=&quot;true&quot;</span><span class="s0">&gt;</span><span class="s5">&amp;times;</span><span class="s0">&lt;/span&gt;</span>
+                <span class="s0">&lt;/button&gt;</span>
+              <span class="s0">&lt;/div&gt;</span>
+              <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;modal-body px-5&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row align-items-center&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-6 text-center&quot;</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;squircle bg-success justify-content-center&quot;</span><span class="s0">&gt;</span>
+                      <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fe fe-cpu fe-32 align-self-center text-white&quot;</span><span class="s0">&gt;&lt;/i&gt;</span>
+                    <span class="s0">&lt;/div&gt;</span>
+                    <span class="s0">&lt;p&gt;</span><span class="s1">Control area</span><span class="s0">&lt;/p&gt;</span>
+                  <span class="s0">&lt;/div&gt;</span>
+                  <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-6 text-center&quot;</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;squircle bg-primary justify-content-center&quot;</span><span class="s0">&gt;</span>
+                      <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fe fe-activity fe-32 align-self-center text-white&quot;</span><span class="s0">&gt;&lt;/i&gt;</span>
+                    <span class="s0">&lt;/div&gt;</span>
+                    <span class="s0">&lt;p&gt;</span><span class="s1">Activity</span><span class="s0">&lt;/p&gt;</span>
+                  <span class="s0">&lt;/div&gt;</span>
+                <span class="s0">&lt;/div&gt;</span>
+                <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row align-items-center&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-6 text-center&quot;</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;squircle bg-primary justify-content-center&quot;</span><span class="s0">&gt;</span>
+                      <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fe fe-droplet fe-32 align-self-center text-white&quot;</span><span class="s0">&gt;&lt;/i&gt;</span>
+                    <span class="s0">&lt;/div&gt;</span>
+                    <span class="s0">&lt;p&gt;</span><span class="s1">Droplet</span><span class="s0">&lt;/p&gt;</span>
+                  <span class="s0">&lt;/div&gt;</span>
+                  <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-6 text-center&quot;</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;squircle bg-primary justify-content-center&quot;</span><span class="s0">&gt;</span>
+                      <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fe fe-upload-cloud fe-32 align-self-center text-white&quot;</span><span class="s0">&gt;&lt;/i&gt;</span>
+                    <span class="s0">&lt;/div&gt;</span>
+                    <span class="s0">&lt;p&gt;</span><span class="s1">Upload</span><span class="s0">&lt;/p&gt;</span>
+                  <span class="s0">&lt;/div&gt;</span>
+                <span class="s0">&lt;/div&gt;</span>
+                <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row align-items-center&quot;</span><span class="s0">&gt;</span>
+                  <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-6 text-center&quot;</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;squircle bg-primary justify-content-center&quot;</span><span class="s0">&gt;</span>
+                      <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fe fe-users fe-32 align-self-center text-white&quot;</span><span class="s0">&gt;&lt;/i&gt;</span>
+                    <span class="s0">&lt;/div&gt;</span>
+                    <span class="s0">&lt;p&gt;</span><span class="s1">Users</span><span class="s0">&lt;/p&gt;</span>
+                  <span class="s0">&lt;/div&gt;</span>
+                  <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-6 text-center&quot;</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;squircle bg-primary justify-content-center&quot;</span><span class="s0">&gt;</span>
+                      <span class="s0">&lt;i </span><span class="s2">class</span><span class="s3">=&quot;fe fe-settings fe-32 align-self-center text-white&quot;</span><span class="s0">&gt;&lt;/i&gt;</span>
+                    <span class="s0">&lt;/div&gt;</span>
+                    <span class="s0">&lt;p&gt;</span><span class="s1">Settings</span><span class="s0">&lt;/p&gt;</span>
+                  <span class="s0">&lt;/div&gt;</span>
+                <span class="s0">&lt;/div&gt;</span>
+              <span class="s0">&lt;/div&gt;</span>
+            <span class="s0">&lt;/div&gt;</span>
+          <span class="s0">&lt;/div&gt;</span>
+        <span class="s0">&lt;/div&gt;</span>
+      <span class="s0">&lt;/main&gt; </span><span class="s4">&lt;!-- main --&gt;</span>
+    <span class="s0">&lt;/div&gt; </span><span class="s4">&lt;!-- .wrapper --&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot; {% static 'js/jquery.min.js' %} &quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot; {% static 'js/popper.min.js' %} &quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot; {% static 'js/moment.min.js' %} &quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot; {% static 'js/bootstrap.min.js' %} &quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot; {% static 'js/simplebar.min.js' %} &quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot; {% static 'js/daterangepicker.js' %} &quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot; {% static 'js/jquery.stickOnScroll.js' %} &quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot; {% static 'js/tinycolor-min.js' %} &quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot; {% static 'js/config.js' %} &quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot; {% static 'js/d3.min.js' %} &quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot; {% static 'js/topojson.min.js' %} &quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot; {% static 'js/datamaps.all.min.js' %} &quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot; {% static 'js/datamaps-zoomto.js' %} &quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot; {% static 'js/datamaps.custom.js' %} &quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot; {% static 'js/Chart.min.js' %} &quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script&gt;</span>
+      <span class="s1">/* defind global options */</span>
+      <span class="s1">Chart.defaults.global.defaultFontFamily = base.defaultFontFamily;</span>
+      <span class="s1">Chart.defaults.global.defaultFontColor = colors.mutedColor;</span>
+    <span class="s0">&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot; {% static 'js/gauge.min.js' %} &quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot; {% static 'js/jquery.sparkline.min.js' %} &quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot; {% static 'js/apexcharts.min.js' %} &quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot; {% static 'js/apexcharts.custom.js' %} &quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot; {% static 'js/apps.js' %} &quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s4">&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">async src</span><span class="s3">=&quot;https://www.googletagmanager.com/gtag/js?id=UA-56159088-1&quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script&gt;</span>
+      <span class="s1">window.dataLayer = window.dataLayer || [];</span>
+
+      <span class="s1">function gtag()</span>
+      <span class="s1">{</span>
+        <span class="s1">dataLayer.push(arguments);</span>
+      <span class="s1">}</span>
+      <span class="s1">gtag('js', new Date());</span>
+      <span class="s1">gtag('config', 'UA-56159088-1');</span>
+    <span class="s0">&lt;/script&gt;</span>
+  <span class="s0">&lt;/body&gt;</span>
+<span class="s0">&lt;/html&gt;</span></pre>
+</body>
+</html>

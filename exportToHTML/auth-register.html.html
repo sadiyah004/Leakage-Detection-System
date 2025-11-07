@@ -1,0 +1,132 @@
+<html>
+<head>
+<title>auth-register.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #e8bf6a;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #bababa;}
+.s3 { color: #a5c261;}
+.s4 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+auth-register.html</font>
+</center></td></tr></table>
+<pre><span class="s0">&lt;!doctype </span><span class="s2">html</span><span class="s0">&gt;</span>
+<span class="s0">&lt;html </span><span class="s2">lang</span><span class="s3">=&quot;en&quot;</span><span class="s0">&gt;</span>
+<span class="s1">{% load static %}</span>
+  <span class="s0">&lt;head&gt;</span>
+    <span class="s0">&lt;meta </span><span class="s2">charset</span><span class="s3">=&quot;utf-8&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;meta </span><span class="s2">name</span><span class="s3">=&quot;viewport&quot; </span><span class="s2">content</span><span class="s3">=&quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;meta </span><span class="s2">name</span><span class="s3">=&quot;description&quot; </span><span class="s2">content</span><span class="s3">=&quot;&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;meta </span><span class="s2">name</span><span class="s3">=&quot;author&quot; </span><span class="s2">content</span><span class="s3">=&quot;&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;icon&quot; </span><span class="s2">href</span><span class="s3">=&quot;favicon.ico&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;title&gt;</span><span class="s1">Tiny Dashboard - A Bootstrap Dashboard Template</span><span class="s0">&lt;/title&gt;</span>
+    <span class="s4">&lt;!-- Simple bar CSS --&gt;</span>
+    <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s2">href</span><span class="s3">=&quot;{% static 'css/simplebar.css' %}&quot;</span><span class="s0">&gt;</span>
+    <span class="s4">&lt;!-- Fonts CSS --&gt;</span>
+    <span class="s0">&lt;link </span><span class="s2">href</span><span class="s3">=&quot;https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&amp;display=swap&quot; </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot;</span><span class="s0">&gt;</span>
+    <span class="s4">&lt;!-- Icons CSS --&gt;</span>
+    <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s2">href</span><span class="s3">=&quot;{% static 'css/feather.css' %}&quot;</span><span class="s0">&gt;</span>
+    <span class="s4">&lt;!-- Date Range Picker CSS --&gt;</span>
+    <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s2">href</span><span class="s3">=&quot;{% static 'css/daterangepicker.css' %}&quot;</span><span class="s0">&gt;</span>
+    <span class="s4">&lt;!-- App CSS --&gt;</span>
+    <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s2">href</span><span class="s3">=&quot;{% static 'css/app-light.css' %}&quot; </span><span class="s2">id</span><span class="s3">=&quot;lightTheme&quot; </span><span class="s2">disabled</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;link </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot; </span><span class="s2">href</span><span class="s3">=&quot;{% static 'css/app-dark.css' %}&quot; </span><span class="s2">id</span><span class="s3">=&quot;darkTheme&quot;</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;/head&gt;</span>
+  <span class="s0">&lt;body </span><span class="s2">class</span><span class="s3">=&quot;dark &quot;</span><span class="s0">&gt;</span>
+  <span class="s1">{% if messages %}</span>
+  <span class="s1">{% for msg in messages %}</span>
+  <span class="s0">&lt;script&gt;</span><span class="s1">alert(&quot;{{ msg }}&quot;)</span><span class="s0">&lt;/script&gt;</span>
+  <span class="s1">{% endfor %}</span>
+  <span class="s1">{% endif %}</span>
+    <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;wrapper vh-100&quot;</span><span class="s0">&gt;</span>
+      <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row align-items-center h-100&quot;</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;form </span><span class="s2">class</span><span class="s3">=&quot;col-lg-6 col-md-8 col-10 mx-auto&quot; </span><span class="s2">action</span><span class="s3">=&quot;/fetchdata&quot; </span><span class="s2">method</span><span class="s3">=&quot;post&quot;</span><span class="s0">&gt;</span>
+          <span class="s1">{% csrf_token %}</span>
+          <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;mx-auto text-center my-4&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;a </span><span class="s2">class</span><span class="s3">=&quot;navbar-brand mx-auto mt-2 flex-fill text-center&quot; </span><span class="s2">href</span><span class="s3">=&quot;./index.html&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;svg </span><span class="s2">version</span><span class="s3">=&quot;1.1&quot; </span><span class="s2">id</span><span class="s3">=&quot;logo&quot; </span><span class="s2">class</span><span class="s3">=&quot;navbar-brand-img brand-md&quot; </span><span class="s2">xmlns</span><span class="s3">=&quot;http://www.w3.org/2000/svg&quot; </span><span class="s2">xmlns:xlink</span><span class="s3">=&quot;http://www.w3.org/1999/xlink&quot; </span><span class="s2">x</span><span class="s3">=&quot;0px&quot; </span><span class="s2">y</span><span class="s3">=&quot;0px&quot; </span><span class="s2">viewBox</span><span class="s3">=&quot;0 0 120 120&quot; </span><span class="s2">xml:space</span><span class="s3">=&quot;preserve&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;g&gt;</span>
+                  <span class="s0">&lt;polygon </span><span class="s2">class</span><span class="s3">=&quot;st0&quot; </span><span class="s2">points</span><span class="s3">=&quot;78,105 15,105 24,87 87,87    &quot; </span><span class="s0">/&gt;</span>
+                  <span class="s0">&lt;polygon </span><span class="s2">class</span><span class="s3">=&quot;st0&quot; </span><span class="s2">points</span><span class="s3">=&quot;96,69 33,69 42,51 105,51     &quot; </span><span class="s0">/&gt;</span>
+                  <span class="s0">&lt;polygon </span><span class="s2">class</span><span class="s3">=&quot;st0&quot; </span><span class="s2">points</span><span class="s3">=&quot;78,33 15,33 24,15 87,15  &quot; </span><span class="s0">/&gt;</span>
+                <span class="s0">&lt;/g&gt;</span>
+              <span class="s0">&lt;/svg&gt;</span>
+            <span class="s0">&lt;/a&gt;</span>
+            <span class="s0">&lt;h2 </span><span class="s2">class</span><span class="s3">=&quot;my-3&quot;</span><span class="s0">&gt;</span><span class="s1">Register</span><span class="s0">&lt;/h2&gt;</span>
+          <span class="s0">&lt;/div&gt;</span>
+          <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;form-group&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;label </span><span class="s2">for</span><span class="s3">=&quot;inputEmail4&quot;</span><span class="s0">&gt;</span><span class="s1">Email</span><span class="s0">&lt;/label&gt;</span>
+            <span class="s0">&lt;input </span><span class="s2">type</span><span class="s3">=&quot;email&quot; </span><span class="s2">class</span><span class="s3">=&quot;form-control&quot; </span><span class="s2">id</span><span class="s3">=&quot;inputEmail4&quot; </span><span class="s2">name </span><span class="s3">= &quot;email&quot;</span><span class="s0">&gt;</span>
+          <span class="s0">&lt;/div&gt;</span>
+          <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;form-row&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;form-group col-md-6&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;label </span><span class="s2">for</span><span class="s3">=&quot;firstname&quot;</span><span class="s0">&gt;</span><span class="s1">Firstname</span><span class="s0">&lt;/label&gt;</span>
+              <span class="s0">&lt;input </span><span class="s2">type</span><span class="s3">=&quot;text&quot; </span><span class="s2">id</span><span class="s3">=&quot;firstname&quot; </span><span class="s2">class</span><span class="s3">=&quot;form-control&quot; </span><span class="s2">name</span><span class="s3">=&quot;fname&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;/div&gt;</span>
+            <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;form-group col-md-6&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;label </span><span class="s2">for</span><span class="s3">=&quot;lastname&quot;</span><span class="s0">&gt;</span><span class="s1">Contact_No</span><span class="s0">&lt;/label&gt;</span>
+              <span class="s0">&lt;input </span><span class="s2">type</span><span class="s3">=&quot;tel&quot; </span><span class="s2">id</span><span class="s3">=&quot;lastname&quot; </span><span class="s2">class</span><span class="s3">=&quot;form-control&quot; </span><span class="s2">name</span><span class="s3">=&quot;contact_no&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;/div&gt;</span>
+          <span class="s0">&lt;/div&gt;</span>
+          <span class="s0">&lt;hr </span><span class="s2">class</span><span class="s3">=&quot;my-4&quot;</span><span class="s0">&gt;</span>
+          <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;row mb-4&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-md-6&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;form-group&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;label </span><span class="s2">for</span><span class="s3">=&quot;inputPassword5&quot;</span><span class="s0">&gt;</span><span class="s1">New Password</span><span class="s0">&lt;/label&gt;</span>
+                <span class="s0">&lt;input </span><span class="s2">type</span><span class="s3">=&quot;password&quot; </span><span class="s2">class</span><span class="s3">=&quot;form-control&quot; </span><span class="s2">id</span><span class="s3">=&quot;inputPassword5&quot; </span><span class="s2">name</span><span class="s3">=&quot;npassword&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;/div&gt;</span>
+              <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;form-group&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;label </span><span class="s2">for</span><span class="s3">=&quot;inputPassword6&quot;</span><span class="s0">&gt;</span><span class="s1">Confirm Password</span><span class="s0">&lt;/label&gt;</span>
+                <span class="s0">&lt;input </span><span class="s2">type</span><span class="s3">=&quot;password&quot; </span><span class="s2">class</span><span class="s3">=&quot;form-control&quot; </span><span class="s2">id</span><span class="s3">=&quot;inputPassword6&quot; </span><span class="s2">name</span><span class="s3">=&quot;cpassword&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;/div&gt;</span>
+            <span class="s0">&lt;/div&gt;</span>
+            <span class="s0">&lt;div </span><span class="s2">class</span><span class="s3">=&quot;col-md-6&quot;</span><span class="s0">&gt;</span>
+              <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;mb-2&quot;</span><span class="s0">&gt;</span><span class="s1">Password requirements</span><span class="s0">&lt;/p&gt;</span>
+              <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;small text-muted mb-2&quot;</span><span class="s0">&gt; </span><span class="s1">To create a new password, you have to meet all of the following requirements: </span><span class="s0">&lt;/p&gt;</span>
+              <span class="s0">&lt;ul </span><span class="s2">class</span><span class="s3">=&quot;small text-muted pl-4 mb-0&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;li&gt; </span><span class="s1">Minimum 8 character </span><span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li&gt;</span><span class="s1">At least one special character</span><span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li&gt;</span><span class="s1">At least one number</span><span class="s0">&lt;/li&gt;</span>
+                <span class="s0">&lt;li&gt;</span><span class="s1">Can’t be the same as a previous password </span><span class="s0">&lt;/li&gt;</span>
+              <span class="s0">&lt;/ul&gt;</span>
+            <span class="s0">&lt;/div&gt;</span>
+          <span class="s0">&lt;/div&gt;</span>
+          <span class="s0">&lt;input </span><span class="s2">class</span><span class="s3">=&quot;btn btn-lg btn-primary btn-block&quot; </span><span class="s2">type</span><span class="s3">=&quot;submit&quot; </span><span class="s2">value </span><span class="s3">= &quot;Sign Up&quot;</span><span class="s0">&gt;&lt;/input&gt;</span>
+          <span class="s0">&lt;p </span><span class="s2">class</span><span class="s3">=&quot;mt-5 mb-3 text-muted text-center&quot;</span><span class="s0">&gt;</span><span class="s1">© 2020</span><span class="s0">&lt;/p&gt;</span>
+        <span class="s0">&lt;/form&gt;</span>
+      <span class="s0">&lt;/div&gt;</span>
+    <span class="s0">&lt;/div&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;{% static 'js/jquery.min.js' %}&quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;{% static 'js/popper.min.js' %}&quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;{% static 'js/moment.min.js' %}&quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;{% static 'js/bootstrap.min.js' %}&quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;{% static 'js/simplebar.min.js' %}&quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;{% static 'js/daterangepicker.js' %}&quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;{% static 'js/jquery.stickOnScroll.js' %}&quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;{% static 'js/tinycolor-min.js' %}&quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;{% static 'js/config.js' %}&quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">src</span><span class="s3">=&quot;{% static 'js/apps.js' %}&quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s4">&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;</span>
+    <span class="s0">&lt;script </span><span class="s2">async src</span><span class="s3">=&quot;https://www.googletagmanager.com/gtag/js?id=UA-56159088-1&quot;</span><span class="s0">&gt;&lt;/script&gt;</span>
+    <span class="s0">&lt;script&gt;</span>
+      <span class="s1">window.dataLayer = window.dataLayer || [];</span>
+
+      <span class="s1">function gtag()</span>
+      <span class="s1">{</span>
+        <span class="s1">dataLayer.push(arguments);</span>
+      <span class="s1">}</span>
+      <span class="s1">gtag('js', new Date());</span>
+      <span class="s1">gtag('config', 'UA-56159088-1');</span>
+    <span class="s0">&lt;/script&gt;</span>
+  <span class="s0">&lt;/body&gt;</span>
+<span class="s0">&lt;/html&gt;</span>
+<span class="s0">&lt;/body&gt;</span>
+<span class="s0">&lt;/html&gt;</span></pre>
+</body>
+</html>
