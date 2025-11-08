@@ -47,12 +47,6 @@ This project focuses on improving safety and reducing resource wastage through a
 
 ---
 
-## 👩‍💻 Author
-**Sadiyah Shaikh**  
-📧 [sadiyahshaikh004@gmail.com]  
-🌐 [(https://github.com/sadiyah004)]
-
----
 
 ## 📜 License
 This project is open-source and available under the [MIT License](LICENSE).
